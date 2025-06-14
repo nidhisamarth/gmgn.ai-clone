@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
 
@@ -35,15 +36,13 @@ const MobileHeader = () => {
           className="flex items-center gap-2 bg-gray-800 border border-gray-600 px-3 py-2 rounded-lg text-sm min-h-[36px] touch-manipulation hover:bg-gray-700 transition-colors"
           onClick={(e) => handleButtonClick(e, 'sol-dropdown')}
         >
-          {/* Updated SOL icon to match reference - hamburger style lines in circle */}
-          <div className="w-4 h-4 relative flex-shrink-0">
-            <div className="absolute inset-0 border-2 border-purple-400 rounded-full"></div>
-            <div className="absolute inset-1 flex flex-col justify-center gap-0.5">
-              <div className="w-2 h-0.5 bg-white rounded-full"></div>
-              <div className="w-2 h-0.5 bg-white rounded-full"></div>
-              <div className="w-2 h-0.5 bg-white rounded-full"></div>
-            </div>
-          </div>
+          {/* SOL icon as SVG */}
+          <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="7" stroke="#a855f7" strokeWidth="2" fill="none" />
+            <rect x="6" y="5" width="4" height="1" rx="0.5" fill="white" />
+            <rect x="6" y="7.5" width="4" height="1" rx="0.5" fill="white" />
+            <rect x="6" y="10" width="4" height="1" rx="0.5" fill="white" />
+          </svg>
           <span className="text-white font-medium text-sm">SOL</span>
           <ChevronDown className="w-4 h-4 text-gray-400 flex-shrink-0" />
         </button>
@@ -51,55 +50,51 @@ const MobileHeader = () => {
 
       {/* Center section with search and target icons */}
       <div className="flex items-center gap-4">
-        {/* Updated search icon to match reference design */}
+        {/* Search icon as SVG */}
         <button 
           onClick={(e) => handleIconClick(e, 'search')}
           className="p-2 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-gray-900 rounded transition-colors"
         >
-          <div className="w-5 h-5 relative">
-            <div className="absolute top-0 left-0 w-4 h-4 border-2 border-white rounded-full bg-transparent"></div>
-            <div className="absolute bottom-0 right-0 w-2 h-0.5 bg-white rounded-full transform rotate-45 origin-bottom-left"></div>
-          </div>
+          <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="6" stroke="white" strokeWidth="2" fill="none" />
+            <path d="14 14l4 4" stroke="white" strokeWidth="2" strokeLinecap="round" />
+          </svg>
         </button>
         
-        {/* Target/crosshair icon */}
+        {/* Target/crosshair icon as SVG */}
         <button 
           onClick={(e) => handleIconClick(e, 'target')}
           className="p-2 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-gray-900 rounded transition-colors"
         >
-          <div className="w-6 h-6 relative">
-            <div className="absolute inset-1 border-2 border-white rounded-full"></div>
-            <div className="absolute inset-2 border border-white rounded-full"></div>
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-0.5 h-2 bg-white"></div>
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0.5 h-2 bg-white"></div>
-            <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-2 h-0.5 bg-white"></div>
-            <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-0.5 bg-white"></div>
-          </div>
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="8" stroke="white" strokeWidth="2" fill="none" />
+            <circle cx="12" cy="12" r="3" stroke="white" strokeWidth="1" fill="none" />
+            <line x1="12" y1="2" x2="12" y2="6" stroke="white" strokeWidth="2" />
+            <line x1="12" y1="18" x2="12" y2="22" stroke="white" strokeWidth="2" />
+            <line x1="2" y1="12" x2="6" y2="12" stroke="white" strokeWidth="2" />
+            <line x1="18" y1="12" x2="22" y2="12" stroke="white" strokeWidth="2" />
+          </svg>
         </button>
       </div>
 
       {/* Right section with file/folder button and settings dropdown */}
       <div className="flex items-center gap-2">
-        {/* Updated file/folder button to match reference design */}
+        {/* Folder button with SVG icon */}
         <button 
           className="flex items-center gap-2 bg-gray-800 border border-gray-600 px-3 py-2 rounded-lg text-sm min-h-[36px] touch-manipulation hover:bg-gray-700 transition-colors"
           onClick={(e) => handleButtonClick(e, 'folder')}
         >
-          {/* Updated folder icon to match reference - simplified folder with lines */}
-          <div className="w-4 h-4 relative flex-shrink-0">
-            {/* Folder base */}
-            <div className="absolute top-1 left-0 w-4 h-2.5 border border-white rounded-sm bg-transparent"></div>
-            {/* Folder tab */}
-            <div className="absolute top-0 left-0 w-1.5 h-1.5 border-t border-l border-r border-white rounded-t-sm bg-transparent"></div>
-            {/* Three horizontal lines inside folder */}
-            <div className="absolute top-2 left-0.5 w-3 h-0.5 bg-white"></div>
-            <div className="absolute top-2.5 left-0.5 w-3 h-0.5 bg-white"></div>
-            <div className="absolute top-3 left-0.5 w-3 h-0.5 bg-white"></div>
-          </div>
+          {/* Folder icon as SVG */}
+          <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 4h3l1-1h7v9H2V4z" stroke="white" strokeWidth="1" fill="none" />
+            <line x1="4" y1="6" x2="10" y2="6" stroke="white" strokeWidth="0.5" />
+            <line x1="4" y1="7.5" x2="10" y2="7.5" stroke="white" strokeWidth="0.5" />
+            <line x1="4" y1="9" x2="10" y2="9" stroke="white" strokeWidth="0.5" />
+          </svg>
           <span className="text-white text-sm font-medium">0</span>
         </button>
         
-        {/* Updated settings dropdown - cleaner chevron design */}
+        {/* Settings dropdown */}
         <button 
           onClick={(e) => handleIconClick(e, 'settings')}
           className="p-2 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-gray-900 rounded transition-colors"

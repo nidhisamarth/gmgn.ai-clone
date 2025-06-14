@@ -45,38 +45,38 @@ const TrenchesSection = () => {
       {/* Filter Bar */}
       <div className="flex items-center justify-between mt-3">
         <div className="flex items-center gap-3">
-          {/* Updated hamburger menu icon */}
+          {/* Hamburger menu icon as SVG */}
           <button 
             className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
             onClick={(e) => handleFilterClick(e, 'menu')}
           >
-            <div className="flex flex-col gap-1">
-              <div className="w-4 h-0.5 bg-white rounded"></div>
-              <div className="w-4 h-0.5 bg-white rounded"></div>
-              <div className="w-4 h-0.5 bg-white rounded"></div>
-            </div>
+            <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="2" y1="4" x2="14" y2="4" stroke="white" strokeWidth="1" strokeLinecap="round" />
+              <line x1="2" y1="8" x2="14" y2="8" stroke="white" strokeWidth="1" strokeLinecap="round" />
+              <line x1="2" y1="12" x2="14" y2="12" stroke="white" strokeWidth="1" strokeLinecap="round" />
+            </svg>
           </button>
           
-          {/* Updated home icon */}
+          {/* Home icon as SVG */}
           <button 
             className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
             onClick={(e) => handleFilterClick(e, 'home')}
           >
-            <div className="relative w-4 h-4">
-              <div className="absolute bottom-0 left-0 w-4 h-2 bg-white"></div>
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-b-2 border-transparent border-b-white" style={{ borderLeftColor: 'transparent', borderRightColor: 'transparent', borderBottomColor: 'white', borderBottomWidth: '8px', borderLeftWidth: '8px', borderRightWidth: '8px' }}></div>
-            </div>
+            <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6l6-4 6 4v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" fill="white" />
+              <path d="M6 16V10h4v6" stroke="black" strokeWidth="1" />
+            </svg>
           </button>
           
-          {/* Updated search icon */}
+          {/* Search icon as SVG */}
           <button 
             className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
             onClick={(e) => handleFilterClick(e, 'search')}
           >
-            <div className="w-4 h-4 relative">
-              <div className="absolute top-0 left-0 w-3 h-3 border border-white rounded-full"></div>
-              <div className="absolute bottom-0 right-0 w-1.5 h-0.5 bg-white rounded-full transform rotate-45 origin-left"></div>
-            </div>
+            <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="6" cy="6" r="4" stroke="white" strokeWidth="1" fill="none" />
+              <path d="10 10l3 3" stroke="white" strokeWidth="1" strokeLinecap="round" />
+            </svg>
           </button>
         </div>
         
@@ -88,11 +88,10 @@ const TrenchesSection = () => {
                 className="bg-black border border-gray-600 px-2 py-1 rounded text-xs text-white flex items-center gap-1 hover:bg-gray-900 transition-colors"
                 onClick={(e) => handleButtonClick(e, 'folder')}
               >
-                {/* Updated folder icon */}
-                <div className="w-3 h-3 relative">
-                  <div className="absolute top-0 left-0 w-3 h-2 bg-gray-400 rounded-sm"></div>
-                  <div className="absolute top-0.5 left-0 w-3 h-2 bg-white rounded-sm"></div>
-                </div>
+                {/* Folder icon as SVG */}
+                <svg className="w-3 h-3" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 3h2l1-1h6v7H1V3z" fill="white" />
+                </svg>
                 <span>1</span>
               </button>
               <button onClick={handleIconClick} className="ml-1">
@@ -104,23 +103,22 @@ const TrenchesSection = () => {
               className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors"
               onClick={(e) => handleButtonClick(e, 'lightning')}
             >
-              {/* Updated lightning bolt icon */}
-              <div className="w-3 h-4 relative">
-                <div className="absolute top-0 left-1 w-0 h-0 border-l-2 border-r-1 border-b-2 border-transparent border-b-white" style={{ borderLeftWidth: '4px', borderRightWidth: '2px', borderBottomWidth: '8px' }}></div>
-                <div className="absolute bottom-0 right-1 w-0 h-0 border-l-1 border-r-2 border-t-2 border-transparent border-t-white" style={{ borderLeftWidth: '2px', borderRightWidth: '4px', borderTopWidth: '8px' }}></div>
-              </div>
+              {/* Lightning bolt icon as SVG */}
+              <svg className="w-3 h-4" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 0L3 8h3l-1 8 4-8H6l1-8z" fill="white" />
+              </svg>
             </button>
             
             <button 
               className="bg-black border border-gray-600 px-2 py-1 rounded text-xs text-white flex items-center gap-1 hover:bg-gray-900 transition-colors"
               onClick={(e) => handleButtonClick(e, 'filter')}
             >
-              {/* Updated filter icon */}
-              <div className="flex flex-col gap-0.5">
-                <div className="w-3 h-0.5 bg-cyan-400 rounded"></div>
-                <div className="w-2.5 h-0.5 bg-cyan-400 rounded"></div>
-                <div className="w-2 h-0.5 bg-cyan-400 rounded"></div>
-              </div>
+              {/* Filter icon as SVG */}
+              <svg className="w-3 h-3" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="1" y1="3" x2="8" y2="3" stroke="#06b6d4" strokeWidth="1" strokeLinecap="round" />
+                <line x1="1" y1="6" x2="7" y2="6" stroke="#06b6d4" strokeWidth="1" strokeLinecap="round" />
+                <line x1="1" y1="9" x2="6" y2="9" stroke="#06b6d4" strokeWidth="1" strokeLinecap="round" />
+              </svg>
               <span>0</span>
             </button>
           </div>
@@ -137,22 +135,15 @@ const TrenchesSection = () => {
             </button>
           </div>
           
-          {/* Updated settings gear icon */}
+          {/* Settings gear icon as SVG */}
           <button 
             className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
             onClick={(e) => handleButtonClick(e, 'settings')}
           >
-            <div className="w-4 h-4 relative">
-              <div className="absolute inset-1 w-2 h-2 border border-gray-300 rounded-full"></div>
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-0.5 h-1 bg-gray-300 rounded"></div>
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0.5 h-1 bg-gray-300 rounded"></div>
-              <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-0.5 bg-gray-300 rounded"></div>
-              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1 h-0.5 bg-gray-300 rounded"></div>
-              <div className="absolute top-0.5 right-0.5 w-0.5 h-0.5 bg-gray-300 rounded transform rotate-45"></div>
-              <div className="absolute top-0.5 left-0.5 w-0.5 h-0.5 bg-gray-300 rounded transform rotate-45"></div>
-              <div className="absolute bottom-0.5 right-0.5 w-0.5 h-0.5 bg-gray-300 rounded transform rotate-45"></div>
-              <div className="absolute bottom-0.5 left-0.5 w-0.5 h-0.5 bg-gray-300 rounded transform rotate-45"></div>
-            </div>
+            <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="2" stroke="#d1d5db" strokeWidth="1" fill="none" />
+              <path d="M8 1v2M8 13v2M15 8h-2M3 8H1M13.36 2.64l-1.42 1.42M4.06 11.94l-1.42 1.42M13.36 13.36l-1.42-1.42M4.06 4.06L2.64 2.64" stroke="#d1d5db" strokeWidth="1" strokeLinecap="round" />
+            </svg>
           </button>
         </div>
       </div>
