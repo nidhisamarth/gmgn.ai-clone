@@ -9,7 +9,7 @@ import HoldingTokenList from '../components/mobile/HoldingTokenList';
 
 const Holding = () => {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col">
+    <div className="min-h-screen bg-black text-white flex flex-col overflow-x-hidden">
       <MobileHeader />
       <NavigationTabs />
       <HoldingSubNav />

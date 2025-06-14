@@ -9,7 +9,7 @@ import TrendingTokenList from '../components/mobile/TrendingTokenList';
 
 const Trending = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <MobileHeader />
       <NavigationTabs />
       <TrendingFilters />

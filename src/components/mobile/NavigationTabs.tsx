@@ -31,16 +31,16 @@ const NavigationTabs = () => {
   };
 
   return (
-    <div className="bg-black px-4 py-3">
-      <div className="flex gap-6 overflow-x-auto scrollbar-hide">
+    <div className="bg-black px-4 py-4 border-b border-gray-800 sticky top-[56px] z-40">
+      <div className="flex gap-6 overflow-x-auto scrollbar-hide pb-1">
         {tabs.map((tab) => (
           <button
             key={tab.name}
             onClick={(e) => handleTabClick(e, tab.path)}
-            className={`whitespace-nowrap text-sm transition-colors ${
+            className={`whitespace-nowrap text-sm px-2 py-2 min-h-[36px] touch-manipulation transition-colors flex-shrink-0 ${
               getActiveTab() === tab.name 
-                ? 'text-white font-medium' 
-                : 'text-gray-500'
+                ? 'text-white font-medium border-b-2 border-white' 
+                : 'text-gray-500 hover:text-gray-300'
             }`}
           >
             {tab.name}

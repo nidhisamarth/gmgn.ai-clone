@@ -9,7 +9,7 @@ import NewTokenList from '../components/mobile/NewTokenList';
 
 const New = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <MobileHeader />
       <NavigationTabs />
       <TimeFilters />

@@ -9,7 +9,7 @@ import MonitorRecommendations from '../components/mobile/MonitorRecommendations'
 
 const Monitor = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <MobileHeader />
       <NavigationTabs />
       <MonitorFilters />

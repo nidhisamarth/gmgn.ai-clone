@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -99,5 +100,78 @@
 
   body {
     @apply bg-background text-foreground;
+    /* Improve text rendering on Android */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent zoom on input focus on iOS */
+    -webkit-text-size-adjust: 100%;
+    /* Improve touch scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Better scrollbar hiding for all browsers */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Improve touch targets for mobile */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* Better button and input styling for mobile */
+  button, input, select, textarea {
+    /* Remove default appearance on iOS */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Prevent zoom on inputs */
+    font-size: 16px;
+  }
+
+  /* Ensure minimum touch target sizes */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improve focus visibility */
+  button:focus-visible, 
+  input:focus-visible, 
+  select:focus-visible, 
+  textarea:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+}
+
+/* Additional mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Prevent horizontal scrolling */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Better text sizing on small screens */
+  html {
+    font-size: 16px;
+  }
+  
+  /* Improve input sizing on mobile */
+  input, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Android-specific improvements */
+@supports (-webkit-appearance: none) {
+  button {
+    /* Improve button rendering on Android Chrome */
+    -webkit-tap-highlight-color: transparent;
   }
 }

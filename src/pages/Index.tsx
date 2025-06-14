@@ -8,7 +8,7 @@ import TokenList from '../components/mobile/TokenList';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <MobileHeader />
       <NavigationTabs />
       <TrenchesSection />

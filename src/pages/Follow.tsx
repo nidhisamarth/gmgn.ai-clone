@@ -10,7 +10,7 @@ import FollowTable from '../components/mobile/FollowTable';
 
 const Follow = () => {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col">
+    <div className="min-h-screen bg-black text-white flex flex-col overflow-x-hidden">
       <MobileHeader />
       <NavigationTabs />
       <FollowSubNav />
