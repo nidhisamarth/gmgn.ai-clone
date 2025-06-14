@@ -2,16 +2,20 @@
 import React from 'react';
 import MobileHeader from '../components/mobile/MobileHeader';
 import NavigationTabs from '../components/mobile/NavigationTabs';
+import MonitorFilters from '../components/mobile/MonitorFilters';
+import MonitorTimeFilters from '../components/mobile/MonitorTimeFilters';
+import MonitorControls from '../components/mobile/MonitorControls';
+import MonitorRecommendations from '../components/mobile/MonitorRecommendations';
 
 const Monitor = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <MobileHeader />
       <NavigationTabs />
-      <div className="px-4 py-8 text-center">
-        <h1 className="text-2xl font-bold mb-4">Monitor</h1>
-        <p className="text-gray-400">Monitoring tools will appear here</p>
-      </div>
+      <MonitorFilters />
+      <MonitorTimeFilters />
+      <MonitorControls />
+      <MonitorRecommendations />
     </div>
   );
 };
