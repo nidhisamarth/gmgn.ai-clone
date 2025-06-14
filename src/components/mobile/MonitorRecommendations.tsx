@@ -6,11 +6,11 @@ const MonitorRecommendations = () => {
     <div className="px-4 py-8">
       {/* Recommendation message with frog */}
       <div className="flex items-start gap-4 mb-8">
-        <div className="w-16 h-16 flex-shrink-0">
+        <div className="w-20 h-20 flex-shrink-0">
           <img 
             src="/lovable-uploads/3446d744-cd08-43f6-beba-f962a9fb2d58.png" 
             alt="Frog mascot" 
-            className="w-16 h-16"
+            className="w-20 h-20 object-contain transform scale-x-[-1]"
           />
         </div>
         <div className="text-white">
