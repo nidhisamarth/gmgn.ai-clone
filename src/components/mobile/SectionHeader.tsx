@@ -1,10 +1,18 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { ChevronDown, Search } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 
 const SectionHeader = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Searching for:', searchQuery);
+    // Add search functionality here
+  };
+
   return (
     <div className="bg-black px-4 py-4 space-y-4">
       {/* Trenches Header */}
@@ -54,18 +62,24 @@ const SectionHeader = () => {
       </div>
       
       {/* Search Bar */}
-      <div className="flex gap-2">
+      <form onSubmit={handleSearch} className="flex gap-2">
         <div className="flex-1 relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
           <Input 
             placeholder="Search" 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="pl-10 bg-gray-900 border-gray-700 text-white placeholder-gray-400 rounded-lg"
           />
         </div>
-        <Button variant="outline" className="bg-gray-900 border-gray-700 text-white hover:bg-gray-800 rounded-lg">
+        <Button 
+          type="button"
+          variant="outline" 
+          className="bg-gray-900 border-gray-700 text-white hover:bg-gray-800 rounded-lg"
+        >
           🔽 Filter
         </Button>
-      </div>
+      </form>
     </div>
   );
 };
