@@ -44,64 +44,68 @@ const TrenchesSection = () => {
       
       {/* Filter Bar */}
       <div className="flex items-center justify-between mt-3">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <button 
-            className="w-6 h-6 bg-gray-700 rounded flex items-center justify-center"
+            className="w-7 h-7 bg-gray-700 rounded flex items-center justify-center"
             onClick={(e) => handleFilterClick(e, 'menu')}
           >
-            <span className="text-white text-xs">≡</span>
+            <span className="text-white text-sm">≡</span>
           </button>
           <button 
-            className="w-6 h-6 bg-gray-700 rounded flex items-center justify-center"
+            className="w-7 h-7 bg-gray-700 rounded flex items-center justify-center"
             onClick={(e) => handleFilterClick(e, 'home')}
           >
-            <span className="text-white text-xs">🏠</span>
+            <span className="text-white text-sm">🏠</span>
           </button>
           <button 
-            className="w-6 h-6 bg-gray-700 rounded flex items-center justify-center"
+            className="w-7 h-7 bg-gray-700 rounded flex items-center justify-center"
             onClick={(e) => handleFilterClick(e, 'list')}
           >
-            <span className="text-white text-xs">≡</span>
+            <span className="text-white text-sm">≡</span>
           </button>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
+          <div className="flex items-center">
+            <button 
+              className="bg-gray-800 px-3 py-1 rounded text-xs text-white border border-gray-600 flex items-center gap-1"
+              onClick={(e) => handleButtonClick(e, 'folder')}
+            >
+              <span>📁</span>
+              <span>1</span>
+            </button>
+            <button onClick={handleIconClick} className="ml-1">
+              <ChevronDown className="w-3 h-3 text-gray-400" />
+            </button>
+          </div>
           <button 
-            className="bg-gray-800 px-2 py-1 rounded text-xs text-white border border-gray-600 flex items-center gap-1"
-            onClick={(e) => handleButtonClick(e, 'folder')}
-          >
-            <span>📁</span>
-            <span>1</span>
-          </button>
-          <button onClick={handleIconClick}>
-            <ChevronDown className="w-3 h-3 text-gray-400" />
-          </button>
-          <button 
-            className="w-6 h-6 bg-green-500 rounded flex items-center justify-center"
+            className="w-7 h-7 bg-green-500 rounded flex items-center justify-center"
             onClick={(e) => handleButtonClick(e, 'lightning')}
           >
-            <span className="text-white text-xs font-bold">⚡</span>
+            <span className="text-white text-sm font-bold">⚡</span>
           </button>
           <button 
-            className="bg-gray-800 px-2 py-1 rounded text-xs text-white flex items-center gap-1"
+            className="bg-gray-800 px-3 py-1 rounded text-xs text-white flex items-center gap-1"
             onClick={(e) => handleButtonClick(e, 'filter')}
           >
             <span>≡</span>
             <span>0</span>
           </button>
+          <div className="flex items-center">
+            <button 
+              className="bg-gray-800 px-3 py-1 rounded text-xs text-white border border-gray-600"
+              onClick={(e) => handleButtonClick(e, 'p1')}
+            >
+              P1
+            </button>
+            <button onClick={handleIconClick} className="ml-1">
+              <ChevronDown className="w-3 h-3 text-gray-400" />
+            </button>
+          </div>
           <button 
-            className="bg-gray-800 px-2 py-1 rounded text-xs text-white border border-gray-600"
-            onClick={(e) => handleButtonClick(e, 'p1')}
-          >
-            P1
-          </button>
-          <button onClick={handleIconClick}>
-            <ChevronDown className="w-3 h-3 text-gray-400" />
-          </button>
-          <button 
-            className="w-6 h-6 bg-gray-700 rounded flex items-center justify-center"
+            className="w-7 h-7 bg-gray-700 rounded flex items-center justify-center"
             onClick={(e) => handleButtonClick(e, 'settings')}
           >
-            <span className="text-gray-400 text-xs">⚙</span>
+            <span className="text-gray-400 text-sm">⚙</span>
           </button>
         </div>
       </div>
