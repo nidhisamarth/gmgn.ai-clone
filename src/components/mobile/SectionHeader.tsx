@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ChevronDown, Search, leaf } from 'lucide-react';
+import { ChevronDown, Search } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 
@@ -56,7 +56,11 @@ const SectionHeader = () => {
       
       {/* New Creations Header */}
       <div className="flex items-center gap-2">
-        <leaf className="w-5 h-5 text-green-400" />
+        <img 
+          src="/lovable-uploads/67520719-6b9f-429e-ac3d-5787cb090bfb.png" 
+          alt="Leaf icon" 
+          className="w-5 h-5"
+        />
         <span className="text-white font-medium">New Creations</span>
         <ChevronDown className="w-4 h-4 text-gray-400" />
       </div>
