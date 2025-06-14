@@ -125,6 +125,11 @@ const TrenchesSection = () => {
     setIsTPSLOpen(false);
   };
 
+  const handleTPSLHover = () => {
+    console.log('TP/SL text hovered - opening TP/SL customization panel');
+    setIsTPSLOpen(true);
+  };
+
   const handleFilterClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -220,10 +225,15 @@ const TrenchesSection = () => {
               <ChevronDown className="w-3 h-3 text-gray-400" />
             </button>
             
-            {/* TP/SL text - no longer clickable */}
-            <span className="text-white text-sm">TP/SL</span>
+            {/* TP/SL text - now opens on hover */}
+            <span 
+              className="text-white text-sm cursor-pointer hover:text-gray-300 transition-colors"
+              onMouseEnter={handleTPSLHover}
+            >
+              TP/SL
+            </span>
             
-            {/* Edit/Pen icon - now triggers TP/SL customization */}
+            {/* Edit/Pen icon - also triggers TP/SL customization */}
             <button 
               className="text-gray-400 hover:text-white transition-colors"
               onClick={handleTPSLClick}
