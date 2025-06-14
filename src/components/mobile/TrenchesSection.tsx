@@ -46,50 +46,70 @@ const TrenchesSection = () => {
       <div className="flex items-center justify-between mt-3">
         <div className="flex items-center gap-3">
           <button 
-            className="w-7 h-7 bg-gray-700 rounded flex items-center justify-center"
+            className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center"
             onClick={(e) => handleFilterClick(e, 'menu')}
           >
-            <span className="text-white text-sm">≡</span>
+            <div className="flex flex-col gap-0.5">
+              <div className="w-3 h-0.5 bg-white rounded"></div>
+              <div className="w-3 h-0.5 bg-white rounded"></div>
+              <div className="w-3 h-0.5 bg-white rounded"></div>
+            </div>
           </button>
           <button 
-            className="w-7 h-7 bg-gray-700 rounded flex items-center justify-center"
+            className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center"
             onClick={(e) => handleFilterClick(e, 'home')}
           >
-            <span className="text-white text-sm">🏠</span>
+            <div className="relative">
+              <div className="w-3 h-2.5 bg-white" style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}></div>
+              <div className="w-3 h-1.5 bg-white mt-0.5"></div>
+            </div>
           </button>
           <button 
-            className="w-7 h-7 bg-gray-700 rounded flex items-center justify-center"
-            onClick={(e) => handleFilterClick(e, 'list')}
+            className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center"
+            onClick={(e) => handleFilterClick(e, 'search')}
           >
-            <span className="text-white text-sm">≡</span>
+            <div className="w-3 h-3 border border-white rounded-full relative">
+              <div className="absolute -bottom-0.5 -right-0.5 w-1 h-0.5 bg-white rotate-45"></div>
+            </div>
           </button>
         </div>
+        
         <div className="flex items-center gap-2">
-          <div className="flex items-center">
+          {/* Middle grouped section with dark background */}
+          <div className="flex items-center bg-gray-800 rounded-lg px-2 py-1 gap-2">
+            <div className="flex items-center">
+              <button 
+                className="bg-gray-700 px-2 py-1 rounded text-xs text-white flex items-center gap-1"
+                onClick={(e) => handleButtonClick(e, 'folder')}
+              >
+                <span>📁</span>
+                <span>1</span>
+              </button>
+              <button onClick={handleIconClick} className="ml-1">
+                <ChevronDown className="w-3 h-3 text-gray-400" />
+              </button>
+            </div>
+            
             <button 
-              className="bg-gray-800 px-3 py-1 rounded text-xs text-white border border-gray-600 flex items-center gap-1"
-              onClick={(e) => handleButtonClick(e, 'folder')}
+              className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center"
+              onClick={(e) => handleButtonClick(e, 'lightning')}
             >
-              <span>📁</span>
-              <span>1</span>
+              <span className="text-white text-sm font-bold">⚡</span>
             </button>
-            <button onClick={handleIconClick} className="ml-1">
-              <ChevronDown className="w-3 h-3 text-gray-400" />
+            
+            <button 
+              className="bg-gray-700 px-2 py-1 rounded text-xs text-white flex items-center gap-1"
+              onClick={(e) => handleButtonClick(e, 'filter')}
+            >
+              <div className="flex flex-col gap-0.5">
+                <div className="w-2 h-0.5 bg-cyan-400 rounded"></div>
+                <div className="w-2 h-0.5 bg-cyan-400 rounded"></div>
+                <div className="w-2 h-0.5 bg-cyan-400 rounded"></div>
+              </div>
+              <span>0</span>
             </button>
           </div>
-          <button 
-            className="w-7 h-7 bg-green-500 rounded flex items-center justify-center"
-            onClick={(e) => handleButtonClick(e, 'lightning')}
-          >
-            <span className="text-white text-sm font-bold">⚡</span>
-          </button>
-          <button 
-            className="bg-gray-800 px-3 py-1 rounded text-xs text-white flex items-center gap-1"
-            onClick={(e) => handleButtonClick(e, 'filter')}
-          >
-            <span>≡</span>
-            <span>0</span>
-          </button>
+          
           <div className="flex items-center">
             <button 
               className="bg-gray-800 px-3 py-1 rounded text-xs text-white border border-gray-600"
@@ -101,11 +121,18 @@ const TrenchesSection = () => {
               <ChevronDown className="w-3 h-3 text-gray-400" />
             </button>
           </div>
+          
           <button 
-            className="w-7 h-7 bg-gray-700 rounded flex items-center justify-center"
+            className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center"
             onClick={(e) => handleButtonClick(e, 'settings')}
           >
-            <span className="text-gray-400 text-sm">⚙</span>
+            <div className="w-4 h-4 border border-gray-400 rounded-full relative">
+              <div className="absolute inset-1 border border-gray-400 rounded-full"></div>
+              <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-0.5 h-1 bg-gray-400"></div>
+              <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0.5 h-1 bg-gray-400"></div>
+              <div className="absolute -left-1 top-1/2 transform -translate-y-1/2 w-1 h-0.5 bg-gray-400"></div>
+              <div className="absolute -right-1 top-1/2 transform -translate-y-1/2 w-1 h-0.5 bg-gray-400"></div>
+            </div>
           </button>
         </div>
       </div>
