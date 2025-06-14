@@ -9,7 +9,7 @@ const TokenList = () => {
       displayName: 'Satsuki',
       timestamp: '28s',
       contract: '4nGyN...pRi',
-      profileImage: '/lovable-uploads/67520719-6b9f-429e-ac3d-5787cb090bfb.png',
+      profileImage: 'https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=200&h=200&fit=crop&crop=face',
       socialIcons: ['instagram', 'search'],
       stats: {
         percentage1: 0.8,
@@ -26,7 +26,7 @@ const TokenList = () => {
       displayName: 'くろすけ',
       timestamp: '33s',
       contract: 'HsU32...om2',
-      profileImage: '/lovable-uploads/67520719-6b9f-429e-ac3d-5787cb090bfb.png',
+      profileImage: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=200&h=200&fit=crop&crop=face',
       socialIcons: ['instagram', 'crown'],
       badgeNumber: 23,
       stats: {
@@ -46,7 +46,7 @@ const TokenList = () => {
       displayName: "Trump's Birthday",
       timestamp: '40s',
       contract: '8he7g...JtK',
-      profileImage: '/lovable-uploads/67520719-6b9f-429e-ac3d-5787cb090bfb.png',
+      profileImage: 'https://images.unsplash.com/photo-1501286353178-1ec881214838?w=200&h=200&fit=crop&crop=face',
       hasBadge: true,
       badgeIcon: '🔗',
       socialIcons: ['search'],
@@ -65,7 +65,7 @@ const TokenList = () => {
       displayName: 'Stare Cat',
       timestamp: '44s',
       contract: 'GafML...gAc',
-      profileImage: '/lovable-uploads/67520719-6b9f-429e-ac3d-5787cb090bfb.png',
+      profileImage: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=200&h=200&fit=crop&crop=face',
       socialIcons: ['x', 'instagram', 'search'],
       stats: {
         percentage1: 1,

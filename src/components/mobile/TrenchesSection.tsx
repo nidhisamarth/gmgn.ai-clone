@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Mountain } from 'lucide-react';
 
 const TrenchesSection = () => {
   // Prevent any click events from bubbling up and causing navigation
@@ -29,7 +29,7 @@ const TrenchesSection = () => {
       <div className="flex items-center justify-between">
         {/* Left section with Trenches title and dropdown */}
         <div className="flex items-center gap-2">
-          <span className="text-xl">🏔️</span>
+          <Mountain className="w-5 h-5 text-white" />
           <span className="text-white font-medium">Trenches</span>
           <button onClick={handleIconClick}>
             <ChevronDown className="w-4 h-4 text-gray-400" />
