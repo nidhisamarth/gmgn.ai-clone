@@ -52,14 +52,14 @@ const MobileHeader = () => {
 
       {/* Center section with search and target icons */}
       <div className="flex items-center gap-4">
-        {/* Search icon */}
+        {/* Updated search icon to match reference design */}
         <button 
           onClick={(e) => handleIconClick(e, 'search')}
           className="p-2 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-gray-900 rounded transition-colors"
         >
-          <div className="w-6 h-6 relative">
-            <div className="absolute top-1 left-1 w-4 h-4 border-2 border-white rounded-full"></div>
-            <div className="absolute bottom-1 right-1 w-2 h-0.5 bg-white rounded-full transform rotate-45 origin-left"></div>
+          <div className="w-5 h-5 relative">
+            <div className="absolute top-0 left-0 w-4 h-4 border-2 border-white rounded-full bg-transparent"></div>
+            <div className="absolute bottom-0 right-0 w-2 h-0.5 bg-white rounded-full transform rotate-45 origin-bottom-left"></div>
           </div>
         </button>
         
@@ -86,24 +86,25 @@ const MobileHeader = () => {
           className="flex items-center gap-2 bg-gray-800 border border-gray-600 px-3 py-2 rounded-lg text-sm min-h-[36px] touch-manipulation hover:bg-gray-700 transition-colors"
           onClick={(e) => handleButtonClick(e, 'folder')}
         >
-          {/* Updated folder icon to match reference - folder with horizontal lines */}
-          <div className="w-5 h-4 relative flex-shrink-0">
-            {/* Folder shape */}
-            <div className="absolute top-0 left-0 w-1 h-1 bg-white rounded-sm"></div>
-            <div className="absolute top-0 left-1 w-4 h-3.5 border-2 border-white rounded-sm bg-transparent"></div>
-            {/* Horizontal lines inside folder */}
-            <div className="absolute top-1.5 left-1.5 w-3 h-0.5 bg-white rounded-sm"></div>
-            <div className="absolute top-2.5 left-1.5 w-2 h-0.5 bg-white rounded-sm"></div>
+          {/* Updated folder icon to match reference - cleaner folder design */}
+          <div className="w-4 h-4 relative flex-shrink-0">
+            {/* Folder tab */}
+            <div className="absolute top-0 left-0 w-2 h-1 bg-white rounded-t-sm"></div>
+            {/* Folder body */}
+            <div className="absolute top-0.5 left-0 w-4 h-3 border-2 border-white rounded-sm bg-transparent"></div>
+            {/* Document lines inside folder */}
+            <div className="absolute top-1.5 left-0.5 w-3 h-0.5 bg-white rounded-sm"></div>
+            <div className="absolute top-2.5 left-0.5 w-2.5 h-0.5 bg-white rounded-sm"></div>
           </div>
           <span className="text-white text-sm font-medium">0</span>
         </button>
         
-        {/* Settings dropdown */}
+        {/* Updated settings dropdown - cleaner chevron design */}
         <button 
           onClick={(e) => handleIconClick(e, 'settings')}
           className="p-2 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-gray-900 rounded transition-colors"
         >
-          <ChevronDown className="w-5 h-5 text-gray-400" />
+          <ChevronDown className="w-5 h-5 text-gray-300" />
         </button>
       </div>
     </div>
