@@ -61,6 +61,12 @@ const TPSLCustomizationPanel = ({ isOpen, onClose }: TPSLCustomizationPanelProps
     ));
   };
 
+  const handleTypeToggle = (id: string) => {
+    setEntries(entries.map(entry => 
+      entry.id === id ? { ...entry, type: entry.type === 'TP' ? 'SL' : 'TP' } : entry
+    ));
+  };
+
   return (
     <div 
       className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
@@ -84,10 +90,13 @@ const TPSLCustomizationPanel = ({ isOpen, onClose }: TPSLCustomizationPanelProps
         <div className="space-y-6 mb-6">
           {entries.map((entry) => (
             <div key={entry.id} className="flex items-center gap-4">
-              {/* Type Label */}
-              <div className="text-gray-400 text-sm font-medium w-12">
+              {/* Type Button - clickable to toggle */}
+              <button
+                onClick={() => handleTypeToggle(entry.id)}
+                className="text-gray-400 text-sm font-medium w-12 hover:text-white transition-colors"
+              >
                 {entry.type} %
-              </div>
+              </button>
               
               {/* First Input */}
               <div className="flex items-center gap-2">
@@ -95,7 +104,7 @@ const TPSLCustomizationPanel = ({ isOpen, onClose }: TPSLCustomizationPanelProps
                   value={entry.percentage}
                   onChange={(e) => handleEntryChange(entry.id, 'percentage', e.target.value)}
                   className="bg-gray-800 border-gray-700 text-white text-center w-20 h-10"
-                  placeholder="0"
+                  placeholder=""
                 />
                 <span className="text-gray-400 text-sm">%</span>
               </div>
@@ -111,7 +120,7 @@ const TPSLCustomizationPanel = ({ isOpen, onClose }: TPSLCustomizationPanelProps
                   value={entry.sellPercentage}
                   onChange={(e) => handleEntryChange(entry.id, 'sellPercentage', e.target.value)}
                   className="bg-gray-800 border-gray-700 text-white text-center w-20 h-10"
-                  placeholder="0"
+                  placeholder=""
                 />
                 <span className="text-gray-400 text-sm">%</span>
               </div>
@@ -125,6 +134,13 @@ const TPSLCustomizationPanel = ({ isOpen, onClose }: TPSLCustomizationPanelProps
               </button>
             </div>
           ))}
+        </div>
+
+        {/* Yellow Prompt Message */}
+        <div className="mb-6 bg-yellow-600/20 border border-yellow-600/30 rounded-lg p-3">
+          <p className="text-yellow-400 text-sm font-medium text-center">
+            100% SL required to exit fully
+          </p>
         </div>
 
         {/* Add Button */}
