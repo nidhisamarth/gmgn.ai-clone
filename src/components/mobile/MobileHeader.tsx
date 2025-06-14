@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Search, Target, ChevronDown, Folder } from 'lucide-react';
+import { Search, Target, ChevronDown } from 'lucide-react';
 
 const MobileHeader = () => {
   // Prevent header icons from causing navigation
@@ -39,7 +39,7 @@ const MobileHeader = () => {
       </div>
 
       {/* Center section with search and target icons */}
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-6">
         <button onClick={(e) => handleIconClick(e, 'search')}>
           <Search className="w-5 h-5 text-white" />
         </button>
@@ -48,13 +48,17 @@ const MobileHeader = () => {
         </button>
       </div>
 
-      {/* Right section with folder and dropdown */}
+      {/* Right section with folder icon and dropdown */}
       <div className="flex items-center gap-1">
         <button 
           className="flex items-center gap-1 bg-gray-800 px-2 py-1 rounded text-sm border border-gray-700"
           onClick={(e) => handleButtonClick(e, 'folder')}
         >
-          <Folder className="w-3 h-3 text-white" />
+          {/* Custom folder icon to match the stacked rectangles style */}
+          <div className="w-3 h-3 flex flex-col justify-center">
+            <div className="w-3 h-1 bg-white rounded-sm mb-0.5"></div>
+            <div className="w-3 h-1 bg-white rounded-sm"></div>
+          </div>
           <span className="text-white text-sm">0</span>
         </button>
         <button onClick={(e) => handleIconClick(e, 'dropdown')}>
