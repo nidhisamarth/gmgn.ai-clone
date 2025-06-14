@@ -37,52 +37,6 @@ const WalletPanel = ({ isOpen, onClose }: WalletPanelProps) => {
       onClick={handleBackdropClick}
     >
       <div className="bg-gray-900 rounded-lg w-full max-w-md max-h-[90vh] overflow-y-auto">
-        {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-700">
-          {/* Left section with folder icon and count */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 bg-gray-800 border border-gray-600 px-3 py-2 rounded">
-              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 4h3l1-1h7v9H2V4z" stroke="white" strokeWidth="1" fill="none" />
-              </svg>
-              <span className="text-white text-sm">1</span>
-              <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-              </svg>
-            </div>
-            
-            {/* TP/SL badge */}
-            <div className="bg-gray-700 px-2 py-1 rounded text-xs text-gray-300">
-              TP/SL
-            </div>
-            
-            {/* Edit icon */}
-            <button className="p-1">
-              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-              </svg>
-            </button>
-            
-            {/* Buy button */}
-            <button className="bg-green-600 px-3 py-1 rounded text-sm text-white flex items-center gap-1">
-              <div className="w-3 h-3 bg-green-400 rounded-full flex items-center justify-center">
-                <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-              </div>
-              Buy
-            </button>
-          </div>
-
-          {/* Right section with P1, P2 */}
-          <div className="flex items-center gap-2">
-            <button className="bg-gray-700 px-3 py-1 rounded text-sm text-white">
-              P1
-            </button>
-            <button className="bg-gray-800 px-3 py-1 rounded text-sm text-gray-400">
-              P2
-            </button>
-          </div>
-        </div>
-
         {/* Wallet Section */}
         <div className="p-4">
           <h2 className="text-white text-lg font-medium mb-4">Wallet</h2>
@@ -112,6 +66,16 @@ const WalletPanel = ({ isOpen, onClose }: WalletPanelProps) => {
                   </button>
                 </div>
               </div>
+            </div>
+            
+            {/* Right section with purple badge and "0" */}
+            <div className="flex items-center gap-1 bg-purple-600 px-2 py-1 rounded text-xs text-white">
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 12 12">
+                <rect x="2" y="2" width="8" height="1" rx="0.5" />
+                <rect x="2" y="5" width="8" height="1" rx="0.5" />
+                <rect x="2" y="8" width="8" height="1" rx="0.5" />
+              </svg>
+              0
             </div>
           </div>
         </div>
