@@ -8,7 +8,7 @@ const MobileHeader = () => {
       {/* Left section with frog icon and SOL dropdown */}
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 bg-green-500 rounded flex items-center justify-center">
-          <span className="text-white text-sm">🐸</span>
+          <span className="text-white text-lg">🐸</span>
         </div>
         <div className="flex items-center gap-1">
           <span className="text-white font-medium">SOL</span>

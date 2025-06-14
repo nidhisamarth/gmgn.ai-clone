@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ChevronDown, Search } from 'lucide-react';
+import { ChevronDown, Search, leaf } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 
@@ -17,7 +17,7 @@ const SectionHeader = () => {
     <div className="bg-black px-4 py-4 space-y-4">
       {/* Trenches Header */}
       <div className="flex items-center gap-2">
-        <span className="text-xl">🌍</span>
+        <span className="text-xl">🏔️</span>
         <span className="text-white font-medium">Trenches</span>
         <ChevronDown className="w-4 h-4 text-gray-400" />
       </div>
@@ -56,7 +56,7 @@ const SectionHeader = () => {
       
       {/* New Creations Header */}
       <div className="flex items-center gap-2">
-        <span className="text-xl">🚀</span>
+        <leaf className="w-5 h-5 text-green-400" />
         <span className="text-white font-medium">New Creations</span>
         <ChevronDown className="w-4 h-4 text-gray-400" />
       </div>
