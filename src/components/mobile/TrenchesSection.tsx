@@ -64,13 +64,16 @@ const TrenchesSection = () => {
             <span className="text-white text-xs">≡</span>
           </button>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <button 
             className="bg-gray-800 px-2 py-1 rounded text-xs text-white border border-gray-600 flex items-center gap-1"
             onClick={(e) => handleButtonClick(e, 'folder')}
           >
             <span>📁</span>
             <span>1</span>
+          </button>
+          <button onClick={handleIconClick}>
+            <ChevronDown className="w-3 h-3 text-gray-400" />
           </button>
           <button 
             className="w-6 h-6 bg-green-500 rounded flex items-center justify-center"
@@ -86,10 +89,13 @@ const TrenchesSection = () => {
             <span>0</span>
           </button>
           <button 
-            className="bg-gray-800 px-2 py-1 rounded text-xs text-white"
+            className="bg-gray-800 px-2 py-1 rounded text-xs text-white border border-gray-600"
             onClick={(e) => handleButtonClick(e, 'p1')}
           >
             P1
+          </button>
+          <button onClick={handleIconClick}>
+            <ChevronDown className="w-3 h-3 text-gray-400" />
           </button>
           <button 
             className="w-6 h-6 bg-gray-700 rounded flex items-center justify-center"
