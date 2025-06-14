@@ -37,10 +37,10 @@ const NavigationTabs = () => {
           <button
             key={tab.name}
             onClick={(e) => handleTabClick(e, tab.path)}
-            className={`whitespace-nowrap text-sm px-2 py-2 min-h-[36px] touch-manipulation transition-colors flex-shrink-0 ${
+            className={`whitespace-nowrap text-sm px-3 py-2 min-h-[36px] touch-manipulation transition-colors flex-shrink-0 rounded-sm ${
               getActiveTab() === tab.name 
-                ? 'text-white font-medium border-b-2 border-white' 
-                : 'text-gray-500 hover:text-gray-300'
+                ? 'text-white font-medium border-b-2 border-white bg-gray-800/50' 
+                : 'text-gray-500 hover:text-gray-300 hover:bg-gray-800/30'
             }`}
           >
             {tab.name}

@@ -13,10 +13,10 @@ const FollowSubNav = () => {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`whitespace-nowrap text-base px-2 py-2 min-h-[40px] touch-manipulation transition-colors flex-shrink-0 ${
+            className={`whitespace-nowrap text-base px-3 py-2 min-h-[40px] touch-manipulation transition-colors flex-shrink-0 rounded-sm ${
               activeTab === tab 
-                ? 'text-white font-medium border-b-2 border-white' 
-                : 'text-gray-500 hover:text-gray-300'
+                ? 'text-white font-medium border-b-2 border-white bg-gray-800/50' 
+                : 'text-gray-500 hover:text-gray-300 hover:bg-gray-800/30'
             }`}
           >
             {tab}
