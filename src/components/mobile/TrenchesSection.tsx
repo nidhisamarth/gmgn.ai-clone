@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import { ChevronDown, Filter } from 'lucide-react';
+import { ChevronDown, Filter, Edit, Settings } from 'lucide-react';
 import { useBuyAmount } from '../../contexts/BuyAmountContext';
 import CustomizationPanel from './CustomizationPanel';
 import DeveloperToolsPanel from './DeveloperToolsPanel';
@@ -99,10 +100,16 @@ const TrenchesSection = () => {
     console.log(`Selected: ${optionName}`);
   };
 
-  const handleIconClick = (e: React.MouseEvent) => {
+  const handleWalletClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('Icon clicked - no action taken');
+    console.log('Wallet folder icon clicked - opening wallet panel');
+    setIsWalletOpen(true);
+  };
+
+  const handleWalletClose = () => {
+    console.log('Closing wallet panel');
+    setIsWalletOpen(false);
   };
 
   const handleFilterClick = (e: React.MouseEvent) => {
@@ -129,36 +136,16 @@ const TrenchesSection = () => {
     setIsTrendSettingsOpen(false);
   };
 
-  const handleWalletClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('Wallet folder icon clicked - opening wallet panel');
-    setIsWalletOpen(true);
-  };
-
-  const handleWalletClose = () => {
-    console.log('Closing wallet panel');
-    setIsWalletOpen(false);
+  const handleBuyAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseFloat(e.target.value) || 0;
+    setBuyAmount(value);
+    console.log('Buy amount changed to:', value);
   };
 
   const handleButtonClick = (e: React.MouseEvent, buttonType: string) => {
     e.preventDefault();
     e.stopPropagation();
     console.log(`Button clicked: ${buttonType}`);
-  };
-
-  const handleHamburgerClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('Hamburger menu clicked - opening customization panel');
-    setIsCustomizationOpen(true);
-  };
-
-  const handleHomeClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('Home icon clicked - opening developer tools');
-    setIsDeveloperToolsOpen(true);
   };
 
   const handleCustomizeClose = () => {
@@ -169,12 +156,6 @@ const TrenchesSection = () => {
   const handleDeveloperToolsClose = () => {
     console.log('Closing developer tools panel');
     setIsDeveloperToolsOpen(false);
-  };
-
-  const handleBuyAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseFloat(e.target.value) || 0;
-    setBuyAmount(value);
-    console.log('Buy amount changed to:', value);
   };
 
   const selectedOptionData = dropdownOptions.find(option => option.name === selectedOption) || dropdownOptions[0];
@@ -212,124 +193,73 @@ const TrenchesSection = () => {
             )}
           </div>
 
-          {/* Right section with Buy functionality - now more compact */}
+          {/* Right section - exact replica of screenshot */}
           <div className="flex items-center gap-2">
-            <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
-              <span className="text-white text-xs">$</span>
+            {/* Folder icon with 1 */}
+            <button 
+              className="flex items-center gap-1 text-white hover:bg-gray-800 px-2 py-1 rounded transition-colors"
+              onClick={handleWalletClick}
+            >
+              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 4h3l1-1h7v9H2V4z" fill="white" />
+              </svg>
+              <span className="text-sm">1</span>
+              <ChevronDown className="w-3 h-3 text-gray-400" />
+            </button>
+            
+            {/* TP/SL text */}
+            <span className="text-white text-sm">TP/SL</span>
+            
+            {/* Edit/Pen icon */}
+            <button className="text-gray-400 hover:text-white transition-colors">
+              <Edit className="w-4 h-4" />
+            </button>
+            
+            {/* Buy section with green circle and lightning */}
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                <span className="text-white text-sm">⚡</span>
+              </div>
+              <span className="text-white text-sm font-medium">Buy</span>
             </div>
-            <span className="text-green-400 text-sm font-medium">Buy</span>
-            <input
-              type="number"
-              value={buyAmount}
-              onChange={handleBuyAmountChange}
-              className="bg-black border border-gray-600 text-white text-xs w-12 px-1 py-1 rounded focus:outline-none focus:border-green-500"
-              min="0"
-              step="0.1"
-            />
-            <span className="text-gray-400 text-xs">≈${calculatePrice(buyAmount)}</span>
-          </div>
-        </div>
-        
-        {/* Filter Bar */}
-        <div className="flex items-center justify-between mt-3">
-          <div className="flex items-center gap-3">
-            {/* Hamburger menu icon - Opens customization panel */}
-            <button 
-              className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
-              onClick={handleHamburgerClick}
-            >
-              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="2" y1="4" x2="14" y2="4" stroke="white" strokeWidth="1" strokeLinecap="round" />
-                <line x1="2" y1="8" x2="14" y2="8" stroke="white" strokeWidth="1" strokeLinecap="round" />
-                <line x1="2" y1="12" x2="14" y2="12" stroke="white" strokeWidth="1" strokeLinecap="round" />
-              </svg>
-            </button>
             
-            {/* Home icon - Opens developer tools */}
+            {/* Filter icon with number 9 */}
             <button 
-              className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
-              onClick={handleHomeClick}
-            >
-              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 6l6-4 6 4v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" fill="white" />
-                <path d="M6 16V10h4v6" stroke="black" strokeWidth="1" />
-              </svg>
-            </button>
-            
-            {/* Search icon as SVG */}
-            <button 
-              className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
+              className="flex items-center gap-1 hover:bg-gray-800 px-2 py-1 rounded transition-colors"
               onClick={handleFilterClick}
             >
-              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="6" cy="6" r="4" stroke="white" strokeWidth="1" fill="none" />
-                <path d="10 10l3 3" stroke="white" strokeWidth="1" strokeLinecap="round" />
-              </svg>
+              <Filter className="w-4 h-4 text-cyan-400" />
+              <span className="text-white text-sm">9</span>
             </button>
-          </div>
-          
-          <div className="flex items-center gap-2">
-            {/* Middle grouped section with dark background */}
-            <div className="flex items-center bg-black border border-gray-700 rounded-lg px-2 py-1 gap-2">
-              <div className="flex items-center">
-                <button 
-                  className="bg-black border border-gray-600 px-2 py-1 rounded text-xs text-white flex items-center gap-1 hover:bg-gray-900 transition-colors"
-                  onClick={handleWalletClick}
-                >
-                  {/* Folder icon as SVG */}
-                  <svg className="w-3 h-3" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 3h2l1-1h6v7H1V3z" fill="white" />
-                  </svg>
-                  <span>1</span>
-                </button>
-                <button onClick={handleIconClick} className="ml-1">
-                  <ChevronDown className="w-3 h-3 text-gray-400" />
-                </button>
-              </div>
-              
-              {/* Filter icon replaces lightning bolt */}
-              <button 
-                className="w-7 h-7 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
-                onClick={handleFilterClick}
-              >
-                <Filter className="w-3 h-3 text-white" />
-              </button>
-              
-              <button 
-                className="bg-black border border-gray-600 px-2 py-1 rounded text-xs text-white flex items-center gap-1 hover:bg-gray-900 transition-colors"
-                onClick={(e) => handleButtonClick(e, 'filter')}
-              >
-                {/* Filter icon as SVG */}
-                <svg className="w-3 h-3" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="1" y1="3" x2="8" y2="3" stroke="#06b6d4" strokeWidth="1" strokeLinecap="round" />
-                  <line x1="1" y1="6" x2="7" y2="6" stroke="#06b6d4" strokeWidth="1" strokeLinecap="round" />
-                  <line x1="1" y1="9" x2="6" y2="9" stroke="#06b6d4" strokeWidth="1" strokeLinecap="round" />
-                </svg>
-                <span>0</span>
-              </button>
-            </div>
             
-            <div className="flex items-center">
+            {/* P1, P2, P3 buttons */}
+            <div className="flex items-center gap-1">
               <button 
-                className="bg-black border border-gray-600 px-3 py-1 rounded text-xs text-white hover:bg-gray-900 transition-colors"
+                className="bg-gray-700 hover:bg-gray-600 text-white px-2 py-1 rounded text-sm transition-colors"
                 onClick={(e) => handleButtonClick(e, 'p1')}
               >
                 P1
               </button>
-              <button onClick={handleIconClick} className="ml-1">
-                <ChevronDown className="w-3 h-3 text-gray-400" />
+              <button 
+                className="bg-gray-700 hover:bg-gray-600 text-white px-2 py-1 rounded text-sm transition-colors"
+                onClick={(e) => handleButtonClick(e, 'p2')}
+              >
+                P2
+              </button>
+              <button 
+                className="bg-gray-700 hover:bg-gray-600 text-white px-2 py-1 rounded text-sm transition-colors"
+                onClick={(e) => handleButtonClick(e, 'p3')}
+              >
+                P3
               </button>
             </div>
             
-            {/* Settings gear icon - now opens trend settings */}
+            {/* Settings gear icon */}
             <button 
-              className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
+              className="text-gray-400 hover:text-white transition-colors"
               onClick={handleTrendSettingsClick}
             >
-              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8" cy="8" r="2" stroke="#d1d5db" strokeWidth="1" fill="none" />
-                <path d="M8 1v2M8 13v2M15 8h-2M3 8H1M13.36 2.64l-1.42 1.42M4.06 11.94l-1.42 1.42M13.36 13.36l-1.42-1.42M4.06 4.06L2.64 2.64" stroke="#d1d5db" strokeWidth="1" strokeLinecap="round" />
-              </svg>
+              <Settings className="w-4 h-4" />
             </button>
           </div>
         </div>
