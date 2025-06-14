@@ -17,7 +17,7 @@ const TokenCard: React.FC<TokenCardProps> = ({ token }) => {
   };
 
   return (
-    <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
+    <div className="bg-gray-900 rounded-lg p-4 mx-4 mb-3 border border-gray-800">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4 flex-1">
           {/* Profile Image with Green Ring and Verification Badge */}
@@ -83,11 +83,26 @@ const TokenCard: React.FC<TokenCardProps> = ({ token }) => {
         </div>
         
         {/* Right Side Stats */}
-        <div className="flex flex-col items-end gap-1 text-sm ml-6">
-          <div className="flex items-center gap-1 text-gray-400 mb-1">
-            <span>👥 {buyAmount > 0 ? buyAmount : token.communityCount}</span>
-            <span className="text-white font-medium">TX {token.txCount}</span>
+        <div className="flex flex-col items-end gap-2">
+          {/* SOL amount */}
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+              <span className="text-white text-sm">⚡</span>
+            </div>
+            <span className="text-green-400 text-lg font-bold">
+              {buyAmount > 0 ? `${buyAmount} SOL` : '7 SOL'}
+            </span>
           </div>
+          
+          {/* Stats */}
+          <div className="flex items-center gap-3 text-sm">
+            <div className="flex items-center gap-1">
+              <span className="text-gray-400">👥</span>
+              <span className="text-white">{buyAmount > 0 ? buyAmount : token.communityCount}</span>
+            </div>
+            <div className="text-white">TX {token.txCount}</div>
+          </div>
+          
           {/* Progress bars */}
           <div className="flex gap-1">
             <div className="w-12 h-1 bg-green-500 rounded-full"></div>
