@@ -2,6 +2,7 @@
 import React from 'react';
 import { Copy } from 'lucide-react';
 import { TokenData } from '../../types/token';
+import { useBuyAmount } from '../../contexts/BuyAmountContext';
 import SocialIcon from './SocialIcon';
 
 interface TokenCardProps {
@@ -9,6 +10,8 @@ interface TokenCardProps {
 }
 
 const TokenCard: React.FC<TokenCardProps> = ({ token }) => {
+  const { buyAmount, calculatePrice } = useBuyAmount();
+
   const copyContract = () => {
     navigator.clipboard.writeText(token.contract);
   };
@@ -71,7 +74,10 @@ const TokenCard: React.FC<TokenCardProps> = ({ token }) => {
                 <span className="text-green-400">👁</span>
                 <span className="text-white">{token.stats.views}</span>
               </div>
-              <span className="text-gray-400">· V {token.volume} MC {token.marketCap}</span>
+              <span className="text-gray-400">
+                · V {buyAmount > 0 ? `$${calculatePrice(buyAmount * 100)}` : token.volume} 
+                MC {buyAmount > 0 ? `$${calculatePrice(buyAmount * 1000)}` : token.marketCap}
+              </span>
             </div>
           </div>
         </div>
@@ -79,7 +85,7 @@ const TokenCard: React.FC<TokenCardProps> = ({ token }) => {
         {/* Right Side Stats */}
         <div className="flex flex-col items-end gap-1 text-sm ml-6">
           <div className="flex items-center gap-1 text-gray-400 mb-1">
-            <span>👥 {token.communityCount}</span>
+            <span>👥 {buyAmount > 0 ? buyAmount : token.communityCount}</span>
             <span className="text-white font-medium">TX {token.txCount}</span>
           </div>
           {/* Progress bars */}

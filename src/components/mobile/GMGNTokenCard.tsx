@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Star } from 'lucide-react';
+import { useBuyAmount } from '../../contexts/BuyAmountContext';
 
 interface TokenCardProps {
   name: string;
@@ -27,6 +28,8 @@ const GMGNTokenCard: React.FC<TokenCardProps> = ({
   icon,
   isPositive
 }) => {
+  const { buyAmount, calculatePrice } = useBuyAmount();
+
   return (
     <div className="bg-gray-800 rounded-xl p-4 mx-4 mb-3">
       <div className="flex items-start justify-between mb-3">
@@ -68,6 +71,22 @@ const GMGNTokenCard: React.FC<TokenCardProps> = ({
           <div className="text-white font-medium">{marketCap}</div>
         </div>
       </div>
+
+      {/* Buy Amount Section */}
+      {buyAmount > 0 && (
+        <div className="mt-3 pt-3 border-t border-gray-700">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="text-gray-400 text-sm">👥 {buyAmount}</span>
+              <span className="text-gray-400 text-sm">TX 3</span>
+            </div>
+            <div className="text-right">
+              <div className="text-gray-400 text-sm">V ${calculatePrice(buyAmount * 100)}</div>
+              <div className="text-gray-400 text-sm">MC ${calculatePrice(buyAmount * 1000)}</div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

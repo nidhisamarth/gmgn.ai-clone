@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Copy, Zap } from 'lucide-react';
+import { useBuyAmount } from '../../contexts/BuyAmountContext';
 
 interface TrendingTokenItemProps {
   name: string;
@@ -29,6 +30,8 @@ const TrendingTokenItem: React.FC<TrendingTokenItemProps> = ({
   hasVerifiedIcon,
   hasCheckIcon
 }) => {
+  const { buyAmount, calculatePrice } = useBuyAmount();
+
   return (
     <div className="px-4 py-3 flex items-center border-b border-gray-800">
       {/* Star icon */}
@@ -71,13 +74,17 @@ const TrendingTokenItem: React.FC<TrendingTokenItemProps> = ({
       
       {/* Liquidity */}
       <div className="text-right mr-6">
-        <div className="text-white font-medium">{liquidity}</div>
+        <div className="text-white font-medium">
+          {buyAmount > 0 ? `${calculatePrice(buyAmount * 50)}K` : liquidity}
+        </div>
         {hasFireIcon && <span className="text-orange-500 text-sm">🔥</span>}
       </div>
       
       {/* Market Cap */}
       <div className="text-right mr-6">
-        <div className="text-white font-medium">{marketCap}</div>
+        <div className="text-white font-medium">
+          {buyAmount > 0 ? `$${calculatePrice(buyAmount * 1000)}K` : marketCap}
+        </div>
       </div>
       
       {/* Lightning icon */}

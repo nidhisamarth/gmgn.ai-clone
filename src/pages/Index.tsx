@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { BuyAmountProvider } from '../contexts/BuyAmountContext';
 import MobileHeader from '../components/mobile/MobileHeader';
 import NavigationTabs from '../components/mobile/NavigationTabs';
 import TrenchesSection from '../components/mobile/TrenchesSection';
@@ -8,13 +9,15 @@ import TokenList from '../components/mobile/TokenList';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      <MobileHeader />
-      <NavigationTabs />
-      <TrenchesSection />
-      <NewCreationsSection />
-      <TokenList />
-    </div>
+    <BuyAmountProvider>
+      <div className="min-h-screen bg-black text-white overflow-x-hidden">
+        <MobileHeader />
+        <NavigationTabs />
+        <TrenchesSection />
+        <NewCreationsSection />
+        <TokenList />
+      </div>
+    </BuyAmountProvider>
   );
 };
 

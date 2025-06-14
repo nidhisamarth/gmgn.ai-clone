@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Copy } from 'lucide-react';
+import { useBuyAmount } from '../../contexts/BuyAmountContext';
 
 interface TokenListItemProps {
   name: string;
@@ -44,6 +44,8 @@ const TokenListItem: React.FC<TokenListItemProps> = ({
   txCount,
   targetCount
 }) => {
+  const { buyAmount, calculatePrice } = useBuyAmount();
+
   const getSocialIcon = (type: string) => {
     switch (type) {
       case 'instagram':
@@ -139,7 +141,8 @@ const TokenListItem: React.FC<TokenListItemProps> = ({
             </div>
           )}
           <div className="text-gray-400">
-            V {volume} MC {marketCap}
+            V {buyAmount > 0 ? `$${calculatePrice(buyAmount * 100)}` : volume} 
+            MC {buyAmount > 0 ? `$${calculatePrice(buyAmount * 1000)}` : marketCap}
           </div>
         </div>
       </div>
@@ -150,7 +153,7 @@ const TokenListItem: React.FC<TokenListItemProps> = ({
           <span className="text-white text-xs">⚡</span>
         </div>
         <div className="flex items-center gap-1 text-gray-400">
-          <span>👥 {communityCount}</span>
+          <span>👥 {buyAmount > 0 ? buyAmount : communityCount}</span>
         </div>
         <div className="text-gray-400">TX {txCount}</div>
         {targetCount && (

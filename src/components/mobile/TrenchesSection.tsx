@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, Filter } from 'lucide-react';
+import { useBuyAmount } from '../../contexts/BuyAmountContext';
 import CustomizationPanel from './CustomizationPanel';
 import DeveloperToolsPanel from './DeveloperToolsPanel';
 import FilterPanel from './FilterPanel';
@@ -14,7 +15,8 @@ const TrenchesSection = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isTrendSettingsOpen, setIsTrendSettingsOpen] = useState(false);
   const [isWalletOpen, setIsWalletOpen] = useState(false);
-  const [buyAmount, setBuyAmount] = useState(8);
+  
+  const { buyAmount, setBuyAmount, calculatePrice } = useBuyAmount();
 
   console.log('TrenchesSection render - isCustomizationOpen:', isCustomizationOpen, 'isDeveloperToolsOpen:', isDeveloperToolsOpen, 'isFilterOpen:', isFilterOpen, 'isTrendSettingsOpen:', isTrendSettingsOpen, 'isWalletOpen:', isWalletOpen);
 
@@ -173,11 +175,6 @@ const TrenchesSection = () => {
     const value = parseFloat(e.target.value) || 0;
     setBuyAmount(value);
     console.log('Buy amount changed to:', value);
-  };
-
-  const calculatePrice = (amount: number) => {
-    const basePrice = 0.0012; // Example base price per token
-    return (amount * basePrice).toFixed(4);
   };
 
   const selectedOptionData = dropdownOptions.find(option => option.name === selectedOption) || dropdownOptions[0];
