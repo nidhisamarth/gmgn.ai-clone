@@ -212,24 +212,21 @@ const TrenchesSection = () => {
             )}
           </div>
 
-          {/* Right section with Buy functionality */}
-          <div className="flex items-center gap-3">
-            {/* Buy section with input and price preview */}
-            <div className="flex items-center gap-2 bg-gray-900 border border-gray-700 rounded-lg px-3 py-2">
-              <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
-                <span className="text-white text-xs">$</span>
-              </div>
-              <span className="text-green-400 text-sm font-medium">Buy</span>
-              <input
-                type="number"
-                value={buyAmount}
-                onChange={handleBuyAmountChange}
-                className="bg-black border border-gray-600 text-white text-sm w-16 px-2 py-1 rounded focus:outline-none focus:border-green-500"
-                min="0"
-                step="0.1"
-              />
-              <span className="text-gray-400 text-xs">≈ ${calculatePrice(buyAmount)} SOL</span>
+          {/* Right section with Buy functionality - now more compact */}
+          <div className="flex items-center gap-2">
+            <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
+              <span className="text-white text-xs">$</span>
             </div>
+            <span className="text-green-400 text-sm font-medium">Buy</span>
+            <input
+              type="number"
+              value={buyAmount}
+              onChange={handleBuyAmountChange}
+              className="bg-black border border-gray-600 text-white text-xs w-12 px-1 py-1 rounded focus:outline-none focus:border-green-500"
+              min="0"
+              step="0.1"
+            />
+            <span className="text-gray-400 text-xs">≈${calculatePrice(buyAmount)}</span>
           </div>
         </div>
         
