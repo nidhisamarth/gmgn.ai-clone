@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -22,6 +21,7 @@ const TPSLCustomizationPanel = ({ isOpen, onClose }: TPSLCustomizationPanelProps
     { id: '2', type: 'TP', percentage: '300', sellPercentage: '50' },
     { id: '3', type: 'SL', percentage: '-50', sellPercentage: '100' }
   ]);
+  const [showDeletePrompt, setShowDeletePrompt] = useState(false);
 
   console.log('TPSLCustomizationPanel render - isOpen:', isOpen);
   
@@ -41,7 +41,13 @@ const TPSLCustomizationPanel = ({ isOpen, onClose }: TPSLCustomizationPanelProps
 
   const handleDeleteEntry = (id: string) => {
     console.log('Deleting entry:', id);
+    setShowDeletePrompt(true);
     setEntries(entries.filter(entry => entry.id !== id));
+    
+    // Hide the prompt after 3 seconds
+    setTimeout(() => {
+      setShowDeletePrompt(false);
+    }, 3000);
   };
 
   const handleAddEntry = () => {
@@ -136,12 +142,14 @@ const TPSLCustomizationPanel = ({ isOpen, onClose }: TPSLCustomizationPanelProps
           ))}
         </div>
 
-        {/* Yellow Prompt Message */}
-        <div className="mb-6 bg-yellow-600/20 border border-yellow-600/30 rounded-lg p-3">
-          <p className="text-yellow-400 text-sm font-medium text-center">
-            100% SL required to exit fully
-          </p>
-        </div>
+        {/* Yellow Prompt Message - only shown when delete is clicked */}
+        {showDeletePrompt && (
+          <div className="mb-6 bg-yellow-600/20 border border-yellow-600/30 rounded-lg p-3">
+            <p className="text-yellow-400 text-sm font-medium text-center">
+              100% SL required to exit fully
+            </p>
+          </div>
+        )}
 
         {/* Add Button */}
         <Button
