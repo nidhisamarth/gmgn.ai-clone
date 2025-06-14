@@ -19,42 +19,42 @@ const MobileHeader = () => {
   };
 
   return (
-    <div className="bg-black px-4 py-3 flex items-center justify-between">
+    <div className="bg-black px-4 py-2 flex items-center justify-between h-12">
       {/* Left section with frog icon and SOL dropdown */}
-      <div className="flex items-center gap-3">
-        <div className="w-8 h-8 rounded flex items-center justify-center">
+      <div className="flex items-center gap-2">
+        <div className="w-7 h-7 rounded flex items-center justify-center">
           <img 
             src="/lovable-uploads/3446d744-cd08-43f6-beba-f962a9fb2d58.png" 
             alt="Frog icon" 
-            className="w-8 h-8"
+            className="w-7 h-7"
           />
         </div>
         <button 
-          className="flex items-center gap-1"
+          className="flex items-center gap-1 bg-gray-800 px-2 py-1 rounded text-sm"
           onClick={(e) => handleButtonClick(e, 'sol-dropdown')}
         >
-          <span className="text-white font-medium">SOL</span>
-          <ChevronDown className="w-4 h-4 text-gray-400" />
+          <span className="text-white font-medium text-sm">SOL</span>
+          <ChevronDown className="w-3 h-3 text-gray-400" />
         </button>
       </div>
 
       {/* Center section with search and target icons */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-5">
         <button onClick={(e) => handleIconClick(e, 'search')}>
-          <Search className="w-6 h-6 text-white" />
+          <Search className="w-5 h-5 text-white" />
         </button>
         <button onClick={(e) => handleIconClick(e, 'target')}>
-          <Target className="w-6 h-6 text-white" />
+          <Target className="w-5 h-5 text-white" />
         </button>
       </div>
 
       {/* Right section with folder and dropdown */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1">
         <button 
-          className="flex items-center gap-1 bg-gray-800 px-2 py-1 rounded border border-gray-600"
+          className="flex items-center gap-1 bg-gray-800 px-2 py-1 rounded text-sm border border-gray-700"
           onClick={(e) => handleButtonClick(e, 'folder')}
         >
-          <Folder className="w-4 h-4 text-white" />
+          <Folder className="w-3 h-3 text-white" />
           <span className="text-white text-sm">0</span>
         </button>
         <button onClick={(e) => handleIconClick(e, 'dropdown')}>
