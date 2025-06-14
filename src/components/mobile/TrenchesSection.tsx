@@ -208,7 +208,7 @@ const TrenchesSection = () => {
             {/* Search icon as SVG */}
             <button 
               className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
-              onClick={(e) => handleFilterClick(e, 'search')}
+              onClick={handleFilterClick}
             >
               <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="6" cy="6" r="4" stroke="white" strokeWidth="1" fill="none" />
@@ -273,7 +273,7 @@ const TrenchesSection = () => {
             {/* Settings gear icon */}
             <button 
               className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
-              onClick={(e) => handleFilterClick(e, 'settings')}
+              onClick={handleFilterClick}
             >
               <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="8" cy="8" r="2" stroke="#d1d5db" strokeWidth="1" fill="none" />
