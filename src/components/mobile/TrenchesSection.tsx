@@ -113,11 +113,14 @@ const TrenchesSection = () => {
     setIsWalletOpen(false);
   };
 
-  const handleTPSLClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('Edit/Pencil icon clicked - opening TP/SL customization panel');
+  const handleTPSLHover = () => {
+    console.log('TP/SL text hovered - opening TP/SL customization panel');
     setIsTPSLOpen(true);
+  };
+
+  const handleTPSLLeave = () => {
+    console.log('TP/SL text hover ended - closing TP/SL customization panel');
+    setIsTPSLOpen(false);
   };
 
   const handleTPSLClose = () => {
@@ -220,14 +223,17 @@ const TrenchesSection = () => {
               <ChevronDown className="w-3 h-3 text-gray-400" />
             </button>
             
-            {/* TP/SL text - no longer clickable */}
-            <span className="text-white text-sm">TP/SL</span>
-            
-            {/* Edit/Pen icon - now triggers TP/SL customization */}
-            <button 
-              className="text-gray-400 hover:text-white transition-colors"
-              onClick={handleTPSLClick}
+            {/* TP/SL text - shows popup on hover */}
+            <span 
+              className="text-white text-sm hover:bg-gray-800 px-2 py-1 rounded transition-colors cursor-pointer"
+              onMouseEnter={handleTPSLHover}
+              onMouseLeave={handleTPSLLeave}
             >
+              TP/SL
+            </span>
+            
+            {/* Edit/Pen icon */}
+            <button className="text-gray-400 hover:text-white transition-colors">
               <Edit className="w-4 h-4" />
             </button>
             
