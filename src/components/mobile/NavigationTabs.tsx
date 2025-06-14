@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const NavigationTabs = () => {
@@ -21,13 +21,13 @@ const NavigationTabs = () => {
   };
 
   return (
-    <div className="bg-black px-4 py-3 border-b border-gray-800">
+    <div className="bg-black px-4 py-3">
       <div className="flex gap-6 overflow-x-auto scrollbar-hide">
         {tabs.map((tab) => (
           <button
             key={tab.name}
             onClick={() => navigate(tab.path)}
-            className={`whitespace-nowrap pb-1 text-sm transition-colors ${
+            className={`whitespace-nowrap text-sm transition-colors ${
               getActiveTab() === tab.name 
                 ? 'text-white font-medium' 
                 : 'text-gray-500'
