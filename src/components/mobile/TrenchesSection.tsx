@@ -113,21 +113,19 @@ const TrenchesSection = () => {
     setIsWalletOpen(false);
   };
 
-  const handleTPSLClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('Edit/Pencil icon clicked - opening TP/SL customization panel');
+  const handleTPSLHover = () => {
+    console.log('TP/SL text hovered - opening TP/SL customization panel');
     setIsTPSLOpen(true);
+  };
+
+  const handleTPSLLeave = () => {
+    console.log('TP/SL text hover ended - closing TP/SL customization panel');
+    setIsTPSLOpen(false);
   };
 
   const handleTPSLClose = () => {
     console.log('Closing TP/SL panel');
     setIsTPSLOpen(false);
-  };
-
-  const handleTPSLHover = () => {
-    console.log('TP/SL text hovered - opening TP/SL customization panel');
-    setIsTPSLOpen(true);
   };
 
   const handleFilterClick = (e: React.MouseEvent) => {
@@ -225,19 +223,17 @@ const TrenchesSection = () => {
               <ChevronDown className="w-3 h-3 text-gray-400" />
             </button>
             
-            {/* TP/SL text - now opens on hover */}
+            {/* TP/SL text - shows popup on hover */}
             <span 
-              className="text-white text-sm cursor-pointer hover:text-gray-300 transition-colors"
+              className="text-white text-sm hover:bg-gray-800 px-2 py-1 rounded transition-colors cursor-pointer"
               onMouseEnter={handleTPSLHover}
+              onMouseLeave={handleTPSLLeave}
             >
               TP/SL
             </span>
             
-            {/* Edit/Pen icon - also triggers TP/SL customization */}
-            <button 
-              className="text-gray-400 hover:text-white transition-colors"
-              onClick={handleTPSLClick}
-            >
+            {/* Edit/Pen icon */}
+            <button className="text-gray-400 hover:text-white transition-colors">
               <Edit className="w-4 h-4" />
             </button>
             
