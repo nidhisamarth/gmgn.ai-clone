@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ChevronDown, Mountain } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const TrenchesSection = () => {
   // Prevent any click events from bubbling up and causing navigation
@@ -29,7 +29,12 @@ const TrenchesSection = () => {
       <div className="flex items-center justify-between">
         {/* Left section with Trenches title and dropdown */}
         <div className="flex items-center gap-2">
-          <Mountain className="w-5 h-5 text-white" />
+          <img 
+            src="/lovable-uploads/67520719-6b9f-429e-ac3d-5787cb090bfb.png" 
+            alt="Military helmet" 
+            className="w-5 h-5 filter brightness-75 hue-rotate-90"
+            style={{ filter: 'brightness(0.6) sepia(1) saturate(2) hue-rotate(90deg)' }}
+          />
           <span className="text-white font-medium">Trenches</span>
           <button onClick={handleIconClick}>
             <ChevronDown className="w-4 h-4 text-gray-400" />

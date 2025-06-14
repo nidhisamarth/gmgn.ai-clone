@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Search, Filter, Sparkles } from 'lucide-react';
+import { Search, Filter } from 'lucide-react';
 
 const NewCreationsSection = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,7 +21,11 @@ const NewCreationsSection = () => {
       {/* New Creations Header with Search and Filter on same line */}
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-green-500" />
+          <img 
+            src="/lovable-uploads/31ef9bb6-a6cf-451e-acb0-51abe9686e18.png" 
+            alt="Sapling icon" 
+            className="w-5 h-5"
+          />
           <span className="text-white font-medium">New Creations</span>
         </div>
         
