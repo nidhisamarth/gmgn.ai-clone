@@ -4,6 +4,7 @@ import CustomizationPanel from './CustomizationPanel';
 import DeveloperToolsPanel from './DeveloperToolsPanel';
 import FilterPanel from './FilterPanel';
 import TrendSettingsPanel from './TrendSettingsPanel';
+import WalletPanel from './WalletPanel';
 
 const TrenchesSection = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -12,8 +13,9 @@ const TrenchesSection = () => {
   const [isDeveloperToolsOpen, setIsDeveloperToolsOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isTrendSettingsOpen, setIsTrendSettingsOpen] = useState(false);
+  const [isWalletOpen, setIsWalletOpen] = useState(false);
 
-  console.log('TrenchesSection render - isCustomizationOpen:', isCustomizationOpen, 'isDeveloperToolsOpen:', isDeveloperToolsOpen, 'isFilterOpen:', isFilterOpen, 'isTrendSettingsOpen:', isTrendSettingsOpen);
+  console.log('TrenchesSection render - isCustomizationOpen:', isCustomizationOpen, 'isDeveloperToolsOpen:', isDeveloperToolsOpen, 'isFilterOpen:', isFilterOpen, 'isTrendSettingsOpen:', isTrendSettingsOpen, 'isWalletOpen:', isWalletOpen);
 
   const dropdownOptions = [
     {
@@ -123,6 +125,18 @@ const TrenchesSection = () => {
   const handleTrendSettingsClose = () => {
     console.log('Closing trend settings panel');
     setIsTrendSettingsOpen(false);
+  };
+
+  const handleWalletClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Wallet folder icon clicked - opening wallet panel');
+    setIsWalletOpen(true);
+  };
+
+  const handleWalletClose = () => {
+    console.log('Closing wallet panel');
+    setIsWalletOpen(false);
   };
 
   const handleButtonClick = (e: React.MouseEvent, buttonType: string) => {
@@ -237,7 +251,7 @@ const TrenchesSection = () => {
               <div className="flex items-center">
                 <button 
                   className="bg-black border border-gray-600 px-2 py-1 rounded text-xs text-white flex items-center gap-1 hover:bg-gray-900 transition-colors"
-                  onClick={(e) => handleButtonClick(e, 'folder')}
+                  onClick={handleWalletClick}
                 >
                   {/* Folder icon as SVG */}
                   <svg className="w-3 h-3" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -320,6 +334,12 @@ const TrenchesSection = () => {
       <TrendSettingsPanel 
         isOpen={isTrendSettingsOpen} 
         onClose={handleTrendSettingsClose} 
+      />
+
+      {/* Wallet Panel */}
+      <WalletPanel 
+        isOpen={isWalletOpen} 
+        onClose={handleWalletClose} 
       />
     </>
   );
