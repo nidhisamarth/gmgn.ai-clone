@@ -3,6 +3,7 @@ import { ChevronDown, Filter } from 'lucide-react';
 import CustomizationPanel from './CustomizationPanel';
 import DeveloperToolsPanel from './DeveloperToolsPanel';
 import FilterPanel from './FilterPanel';
+import TrendSettingsPanel from './TrendSettingsPanel';
 
 const TrenchesSection = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -10,8 +11,9 @@ const TrenchesSection = () => {
   const [isCustomizationOpen, setIsCustomizationOpen] = useState(false);
   const [isDeveloperToolsOpen, setIsDeveloperToolsOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isTrendSettingsOpen, setIsTrendSettingsOpen] = useState(false);
 
-  console.log('TrenchesSection render - isCustomizationOpen:', isCustomizationOpen, 'isDeveloperToolsOpen:', isDeveloperToolsOpen, 'isFilterOpen:', isFilterOpen);
+  console.log('TrenchesSection render - isCustomizationOpen:', isCustomizationOpen, 'isDeveloperToolsOpen:', isDeveloperToolsOpen, 'isFilterOpen:', isFilterOpen, 'isTrendSettingsOpen:', isTrendSettingsOpen);
 
   const dropdownOptions = [
     {
@@ -109,6 +111,18 @@ const TrenchesSection = () => {
   const handleFilterClose = () => {
     console.log('Closing filter panel');
     setIsFilterOpen(false);
+  };
+
+  const handleTrendSettingsClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Trend settings icon clicked - opening trend settings panel');
+    setIsTrendSettingsOpen(true);
+  };
+
+  const handleTrendSettingsClose = () => {
+    console.log('Closing trend settings panel');
+    setIsTrendSettingsOpen(false);
   };
 
   const handleButtonClick = (e: React.MouseEvent, buttonType: string) => {
@@ -270,10 +284,10 @@ const TrenchesSection = () => {
               </button>
             </div>
             
-            {/* Settings gear icon */}
+            {/* Settings gear icon - now opens trend settings */}
             <button 
               className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
-              onClick={handleFilterClick}
+              onClick={handleTrendSettingsClick}
             >
               <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="8" cy="8" r="2" stroke="#d1d5db" strokeWidth="1" fill="none" />
@@ -300,6 +314,12 @@ const TrenchesSection = () => {
       <FilterPanel 
         isOpen={isFilterOpen} 
         onClose={handleFilterClose} 
+      />
+
+      {/* Trend Settings Panel */}
+      <TrendSettingsPanel 
+        isOpen={isTrendSettingsOpen} 
+        onClose={handleTrendSettingsClose} 
       />
     </>
   );
