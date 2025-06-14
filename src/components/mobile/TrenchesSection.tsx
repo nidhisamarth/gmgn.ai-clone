@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Filter } from 'lucide-react';
 import CustomizationPanel from './CustomizationPanel';
 import DeveloperToolsPanel from './DeveloperToolsPanel';
+import FilterPanel from './FilterPanel';
 
 const TrenchesSection = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState('Trenches');
   const [isCustomizationOpen, setIsCustomizationOpen] = useState(false);
   const [isDeveloperToolsOpen, setIsDeveloperToolsOpen] = useState(false);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  console.log('TrenchesSection render - isCustomizationOpen:', isCustomizationOpen, 'isDeveloperToolsOpen:', isDeveloperToolsOpen);
+  console.log('TrenchesSection render - isCustomizationOpen:', isCustomizationOpen, 'isDeveloperToolsOpen:', isDeveloperToolsOpen, 'isFilterOpen:', isFilterOpen);
 
   const dropdownOptions = [
     {
@@ -97,10 +99,16 @@ const TrenchesSection = () => {
     console.log('Icon clicked - no action taken');
   };
 
-  const handleFilterClick = (e: React.MouseEvent, filterType: string) => {
+  const handleFilterClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log(`Filter clicked: ${filterType}`);
+    console.log('Filter icon clicked - opening filter panel');
+    setIsFilterOpen(true);
+  };
+
+  const handleFilterClose = () => {
+    console.log('Closing filter panel');
+    setIsFilterOpen(false);
   };
 
   const handleButtonClick = (e: React.MouseEvent, buttonType: string) => {
@@ -228,14 +236,12 @@ const TrenchesSection = () => {
                 </button>
               </div>
               
+              {/* Filter icon replaces lightning bolt */}
               <button 
-                className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors"
-                onClick={(e) => handleButtonClick(e, 'lightning')}
+                className="w-7 h-7 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
+                onClick={handleFilterClick}
               >
-                {/* Lightning bolt icon as SVG */}
-                <svg className="w-3 h-4" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 0L3 8h3l-1 8 4-8H6l1-8z" fill="white" />
-                </svg>
+                <Filter className="w-3 h-3 text-white" />
               </button>
               
               <button 
@@ -288,6 +294,12 @@ const TrenchesSection = () => {
       <DeveloperToolsPanel 
         isOpen={isDeveloperToolsOpen} 
         onClose={handleDeveloperToolsClose} 
+      />
+
+      {/* Filter Panel */}
+      <FilterPanel 
+        isOpen={isFilterOpen} 
+        onClose={handleFilterClose} 
       />
     </>
   );
