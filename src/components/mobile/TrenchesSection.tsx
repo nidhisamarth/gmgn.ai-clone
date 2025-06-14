@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ChevronDown, Filter, Edit, Settings } from 'lucide-react';
 import { useBuyAmount } from '../../contexts/BuyAmountContext';
@@ -17,6 +18,7 @@ const TrenchesSection = () => {
   const [isTrendSettingsOpen, setIsTrendSettingsOpen] = useState(false);
   const [isWalletOpen, setIsWalletOpen] = useState(false);
   const [isTPSLOpen, setIsTPSLOpen] = useState(false);
+  const [showTPSLTooltip, setShowTPSLTooltip] = useState(false);
   
   const { buyAmount, setBuyAmount, calculatePrice } = useBuyAmount();
 
@@ -114,13 +116,13 @@ const TrenchesSection = () => {
   };
 
   const handleTPSLHover = () => {
-    console.log('TP/SL text hovered - opening TP/SL customization panel');
-    setIsTPSLOpen(true);
+    console.log('TP/SL text hovered - showing tooltip');
+    setShowTPSLTooltip(true);
   };
 
   const handleTPSLLeave = () => {
-    console.log('TP/SL text hover ended - closing TP/SL customization panel');
-    setIsTPSLOpen(false);
+    console.log('TP/SL text hover ended - hiding tooltip');
+    setShowTPSLTooltip(false);
   };
 
   const handleTPSLClose = () => {
@@ -223,14 +225,32 @@ const TrenchesSection = () => {
               <ChevronDown className="w-3 h-3 text-gray-400" />
             </button>
             
-            {/* TP/SL text - shows popup on hover */}
-            <span 
-              className="text-white text-sm hover:bg-gray-800 px-2 py-1 rounded transition-colors cursor-pointer"
-              onMouseEnter={handleTPSLHover}
-              onMouseLeave={handleTPSLLeave}
-            >
-              TP/SL
-            </span>
+            {/* TP/SL text - shows tooltip on hover */}
+            <div className="relative">
+              <span 
+                className="text-white text-sm hover:bg-gray-800 px-2 py-1 rounded transition-colors cursor-pointer"
+                onMouseEnter={handleTPSLHover}
+                onMouseLeave={handleTPSLLeave}
+              >
+                TP/SL
+              </span>
+              
+              {/* TP/SL Tooltip */}
+              {showTPSLTooltip && (
+                <div className="absolute top-full right-0 mt-2 bg-gray-900 border border-gray-700 rounded-lg shadow-lg z-50 p-3 min-w-[200px]">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-400">TP1:</span>
+                      <span className="text-white">TP 100%, Sell 50%</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-400">TP2:</span>
+                      <span className="text-white">TP 300%, Sell 50%</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
             
             {/* Edit/Pen icon */}
             <button className="text-gray-400 hover:text-white transition-colors">
