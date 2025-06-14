@@ -7,12 +7,20 @@ interface CustomizationPanelProps {
 }
 
 const CustomizationPanel = ({ isOpen, onClose }: CustomizationPanelProps) => {
+  console.log('CustomizationPanel render - isOpen:', isOpen);
+  
   if (!isOpen) return null;
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
+      console.log('Backdrop clicked - closing panel');
       onClose();
     }
+  };
+
+  const handleCloseClick = () => {
+    console.log('Close button clicked');
+    onClose();
   };
 
   return (
@@ -25,7 +33,7 @@ const CustomizationPanel = ({ isOpen, onClose }: CustomizationPanelProps) => {
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-white text-lg font-semibold">Customize</h2>
           <button
-            onClick={onClose}
+            onClick={handleCloseClick}
             className="text-gray-400 hover:text-white transition-colors"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,6 +128,7 @@ const CustomizationPanel = ({ isOpen, onClose }: CustomizationPanelProps) => {
               <button
                 key={item}
                 className="bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded px-3 py-2 text-xs text-gray-300 transition-colors"
+                onClick={() => console.log(`Data filter clicked: ${item}`)}
               >
                 {item}
               </button>

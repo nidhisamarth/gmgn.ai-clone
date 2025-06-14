@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import CustomizationPanel from './CustomizationPanel';
@@ -6,6 +7,8 @@ const TrenchesSection = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState('Trenches');
   const [isCustomizationOpen, setIsCustomizationOpen] = useState(false);
+
+  console.log('TrenchesSection render - isCustomizationOpen:', isCustomizationOpen);
 
   const dropdownOptions = [
     {
@@ -108,8 +111,13 @@ const TrenchesSection = () => {
   const handleCustomizeClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    console.log('Settings gear clicked - opening customization panel');
     setIsCustomizationOpen(true);
-    console.log('Customize panel opened');
+  };
+
+  const handleCustomizeClose = () => {
+    console.log('Closing customization panel');
+    setIsCustomizationOpen(false);
   };
 
   const selectedOptionData = dropdownOptions.find(option => option.name === selectedOption) || dropdownOptions[0];
@@ -258,7 +266,7 @@ const TrenchesSection = () => {
       {/* Customization Panel */}
       <CustomizationPanel 
         isOpen={isCustomizationOpen} 
-        onClose={() => setIsCustomizationOpen(false)} 
+        onClose={handleCustomizeClose} 
       />
     </>
   );
