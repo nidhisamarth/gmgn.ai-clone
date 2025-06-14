@@ -36,14 +36,13 @@ const MobileHeader = () => {
           className="flex items-center gap-2 bg-gray-800 border border-gray-600 px-3 py-2 rounded-lg text-sm min-h-[36px] touch-manipulation hover:bg-gray-700 transition-colors"
           onClick={(e) => handleButtonClick(e, 'sol-dropdown')}
         >
-          {/* SOL icon (purple circle with lines) */}
+          {/* Updated SOL icon to match reference - hamburger style lines in circle */}
           <div className="w-4 h-4 relative flex-shrink-0">
-            <div className="absolute inset-0 bg-purple-500 rounded-full"></div>
-            <div className="absolute top-1 left-1 right-1 bottom-1 flex items-center justify-center">
-              <div className="flex flex-col gap-0.5">
-                <div className="w-2 h-0.5 bg-white rounded-full"></div>
-                <div className="w-2 h-0.5 bg-white rounded-full"></div>
-              </div>
+            <div className="absolute inset-0 border-2 border-purple-400 rounded-full"></div>
+            <div className="absolute inset-1 flex flex-col justify-center gap-0.5">
+              <div className="w-2 h-0.5 bg-white rounded-full"></div>
+              <div className="w-2 h-0.5 bg-white rounded-full"></div>
+              <div className="w-2 h-0.5 bg-white rounded-full"></div>
             </div>
           </div>
           <span className="text-white font-medium text-sm">SOL</span>
@@ -82,16 +81,19 @@ const MobileHeader = () => {
 
       {/* Right section with file/folder button and settings dropdown */}
       <div className="flex items-center gap-2">
-        {/* File/folder button with count */}
+        {/* Updated file/folder button to match reference design */}
         <button 
           className="flex items-center gap-2 bg-gray-800 border border-gray-600 px-3 py-2 rounded-lg text-sm min-h-[36px] touch-manipulation hover:bg-gray-700 transition-colors"
           onClick={(e) => handleButtonClick(e, 'folder')}
         >
-          {/* File/folder icon */}
+          {/* Updated folder icon to match reference - folder with horizontal lines */}
           <div className="w-5 h-4 relative flex-shrink-0">
-            <div className="absolute top-0 left-0 w-5 h-3 bg-white rounded-sm border-2 border-gray-300"></div>
-            <div className="absolute top-1 left-1 w-1 h-0.5 bg-gray-400 rounded-sm"></div>
-            <div className="absolute top-2 left-1 w-2 h-0.5 bg-gray-400 rounded-sm"></div>
+            {/* Folder shape */}
+            <div className="absolute top-0 left-0 w-1 h-1 bg-white rounded-sm"></div>
+            <div className="absolute top-0 left-1 w-4 h-3.5 border-2 border-white rounded-sm bg-transparent"></div>
+            {/* Horizontal lines inside folder */}
+            <div className="absolute top-1.5 left-1.5 w-3 h-0.5 bg-white rounded-sm"></div>
+            <div className="absolute top-2.5 left-1.5 w-2 h-0.5 bg-white rounded-sm"></div>
           </div>
           <span className="text-white text-sm font-medium">0</span>
         </button>
