@@ -11,6 +11,13 @@ const MobileHeader = () => {
     // These would handle their respective functionality without navigation
   };
 
+  const handleButtonClick = (e: React.MouseEvent, buttonType: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log(`Header button clicked: ${buttonType}`);
+    // These would handle their respective functionality without navigation
+  };
+
   return (
     <div className="bg-black px-4 py-3 flex items-center justify-between">
       {/* Left section with frog icon and SOL dropdown */}
@@ -24,7 +31,7 @@ const MobileHeader = () => {
         </div>
         <button 
           className="flex items-center gap-1"
-          onClick={(e) => handleIconClick(e, 'sol-dropdown')}
+          onClick={(e) => handleButtonClick(e, 'sol-dropdown')}
         >
           <span className="text-white font-medium">SOL</span>
           <ChevronDown className="w-4 h-4 text-gray-400" />
@@ -45,7 +52,7 @@ const MobileHeader = () => {
       <div className="flex items-center gap-2">
         <button 
           className="flex items-center gap-1 bg-gray-800 px-2 py-1 rounded border border-gray-600"
-          onClick={(e) => handleIconClick(e, 'folder')}
+          onClick={(e) => handleButtonClick(e, 'folder')}
         >
           <Folder className="w-4 h-4 text-white" />
           <span className="text-white text-sm">0</span>

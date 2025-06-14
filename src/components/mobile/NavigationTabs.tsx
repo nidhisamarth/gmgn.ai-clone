@@ -20,7 +20,9 @@ const NavigationTabs = () => {
     return currentTab ? currentTab.name : 'Trenches';
   };
 
-  const handleTabClick = (path: string) => {
+  const handleTabClick = (e: React.MouseEvent, path: string) => {
+    e.preventDefault();
+    e.stopPropagation();
     // Only navigate if it's actually a different path
     if (location.pathname !== path) {
       navigate(path);
@@ -33,7 +35,7 @@ const NavigationTabs = () => {
         {tabs.map((tab) => (
           <button
             key={tab.name}
-            onClick={() => handleTabClick(tab.path)}
+            onClick={(e) => handleTabClick(e, tab.path)}
             className={`whitespace-nowrap text-sm transition-colors ${
               getActiveTab() === tab.name 
                 ? 'text-white font-medium' 

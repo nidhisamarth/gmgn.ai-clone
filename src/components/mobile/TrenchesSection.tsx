@@ -18,6 +18,12 @@ const TrenchesSection = () => {
     console.log(`Filter clicked: ${filterType}`);
   };
 
+  const handleButtonClick = (e: React.MouseEvent, buttonType: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log(`Button clicked: ${buttonType}`);
+  };
+
   return (
     <div className="bg-black px-4 py-3">
       <div className="flex items-center justify-between">
@@ -56,33 +62,33 @@ const TrenchesSection = () => {
         <div className="flex items-center gap-2">
           <button 
             className="bg-gray-800 px-2 py-1 rounded text-xs text-white border border-gray-600 flex items-center gap-1"
-            onClick={(e) => handleFilterClick(e, 'folder')}
+            onClick={(e) => handleButtonClick(e, 'folder')}
           >
             <span>📁</span>
             <span>1</span>
           </button>
           <button 
             className="w-6 h-6 bg-green-500 rounded flex items-center justify-center"
-            onClick={(e) => handleFilterClick(e, 'lightning')}
+            onClick={(e) => handleButtonClick(e, 'lightning')}
           >
             <span className="text-white text-xs font-bold">⚡</span>
           </button>
           <button 
             className="bg-gray-800 px-2 py-1 rounded text-xs text-white flex items-center gap-1"
-            onClick={(e) => handleFilterClick(e, 'filter')}
+            onClick={(e) => handleButtonClick(e, 'filter')}
           >
             <span>≡</span>
             <span>0</span>
           </button>
           <button 
             className="bg-gray-800 px-2 py-1 rounded text-xs text-white"
-            onClick={(e) => handleFilterClick(e, 'p1')}
+            onClick={(e) => handleButtonClick(e, 'p1')}
           >
             P1
           </button>
           <button 
             className="w-6 h-6 bg-gray-700 rounded flex items-center justify-center"
-            onClick={(e) => handleFilterClick(e, 'settings')}
+            onClick={(e) => handleButtonClick(e, 'settings')}
           >
             <span className="text-gray-400 text-xs">⚙</span>
           </button>
