@@ -20,13 +20,20 @@ const NavigationTabs = () => {
     return currentTab ? currentTab.name : 'Trenches';
   };
 
+  const handleTabClick = (path: string) => {
+    // Only navigate if it's actually a different path
+    if (location.pathname !== path) {
+      navigate(path);
+    }
+  };
+
   return (
     <div className="bg-black px-4 py-3">
       <div className="flex gap-6 overflow-x-auto scrollbar-hide">
         {tabs.map((tab) => (
           <button
             key={tab.name}
-            onClick={() => navigate(tab.path)}
+            onClick={() => handleTabClick(tab.path)}
             className={`whitespace-nowrap text-sm transition-colors ${
               getActiveTab() === tab.name 
                 ? 'text-white font-medium' 

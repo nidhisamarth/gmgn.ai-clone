@@ -3,6 +3,14 @@ import React from 'react';
 import { Search, Target, ChevronDown, Folder } from 'lucide-react';
 
 const MobileHeader = () => {
+  // Prevent header icons from causing navigation
+  const handleIconClick = (e: React.MouseEvent, iconType: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log(`Header icon clicked: ${iconType}`);
+    // These would handle their respective functionality without navigation
+  };
+
   return (
     <div className="bg-black px-4 py-3 flex items-center justify-between">
       {/* Left section with frog icon and SOL dropdown */}
@@ -14,25 +22,37 @@ const MobileHeader = () => {
             className="w-8 h-8"
           />
         </div>
-        <div className="flex items-center gap-1">
+        <button 
+          className="flex items-center gap-1"
+          onClick={(e) => handleIconClick(e, 'sol-dropdown')}
+        >
           <span className="text-white font-medium">SOL</span>
           <ChevronDown className="w-4 h-4 text-gray-400" />
-        </div>
+        </button>
       </div>
 
       {/* Center section with search and target icons */}
       <div className="flex items-center gap-4">
-        <Search className="w-6 h-6 text-white" />
-        <Target className="w-6 h-6 text-white" />
+        <button onClick={(e) => handleIconClick(e, 'search')}>
+          <Search className="w-6 h-6 text-white" />
+        </button>
+        <button onClick={(e) => handleIconClick(e, 'target')}>
+          <Target className="w-6 h-6 text-white" />
+        </button>
       </div>
 
       {/* Right section with folder and dropdown */}
       <div className="flex items-center gap-2">
-        <div className="flex items-center gap-1 bg-gray-800 px-2 py-1 rounded border border-gray-600">
+        <button 
+          className="flex items-center gap-1 bg-gray-800 px-2 py-1 rounded border border-gray-600"
+          onClick={(e) => handleIconClick(e, 'folder')}
+        >
           <Folder className="w-4 h-4 text-white" />
           <span className="text-white text-sm">0</span>
-        </div>
-        <ChevronDown className="w-4 h-4 text-gray-400" />
+        </button>
+        <button onClick={(e) => handleIconClick(e, 'dropdown')}>
+          <ChevronDown className="w-4 h-4 text-gray-400" />
+        </button>
       </div>
     </div>
   );
