@@ -7,16 +7,16 @@ const NavigationTabs = () => {
   const tabs = ['Trenches', 'New', 'Trending', 'CopyTrade', 'Monitor', 'Follow'];
 
   return (
-    <div className="bg-gray-800 px-4 py-3">
+    <div className="bg-black px-4 py-3 border-b border-gray-800">
       <div className="flex gap-6 overflow-x-auto scrollbar-hide">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`whitespace-nowrap pb-1 transition-colors ${
+            className={`whitespace-nowrap pb-1 text-sm transition-colors ${
               activeTab === tab 
-                ? 'text-white border-b-2 border-green-400' 
-                : 'text-gray-400'
+                ? 'text-white font-medium' 
+                : 'text-gray-500'
             }`}
           >
             {tab}

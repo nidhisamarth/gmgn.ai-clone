@@ -10,23 +10,29 @@ const SocialIcon: React.FC<SocialIconProps> = ({ type }) => {
   const getIcon = () => {
     switch (type) {
       case 'instagram':
-        return <span className="text-pink-400">📷</span>;
+        return <div className="w-4 h-4 bg-pink-500 rounded flex items-center justify-center">
+          <span className="text-white text-xs">📷</span>
+        </div>;
       case 'x':
-        return <X className="w-3 h-3 text-gray-400" />;
+        return <div className="w-4 h-4 bg-gray-700 rounded flex items-center justify-center">
+          <X className="w-2 h-2 text-white" />
+        </div>;
       case 'search':
-        return <Search className="w-3 h-3 text-gray-400" />;
+        return <div className="w-4 h-4 bg-gray-700 rounded flex items-center justify-center">
+          <Search className="w-2 h-2 text-gray-400" />
+        </div>;
       case 'crown':
-        return <span className="text-yellow-400">👑</span>;
+        return <div className="w-4 h-4 bg-yellow-500 rounded flex items-center justify-center">
+          <span className="text-white text-xs">👑</span>
+        </div>;
       default:
-        return <span className="text-gray-400">•</span>;
+        return <div className="w-4 h-4 bg-gray-700 rounded flex items-center justify-center">
+          <span className="text-gray-400 text-xs">•</span>
+        </div>;
     }
   };
 
-  return (
-    <div className="w-6 h-6 rounded-full bg-gray-700 flex items-center justify-center">
-      {getIcon()}
-    </div>
-  );
+  return getIcon();
 };
 
 export default SocialIcon;
