@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 
 interface DeveloperToolsPanelProps {
   isOpen: boolean;
@@ -7,6 +7,9 @@ interface DeveloperToolsPanelProps {
 }
 
 const DeveloperToolsPanel = ({ isOpen, onClose }: DeveloperToolsPanelProps) => {
+  const [devAddress, setDevAddress] = useState('');
+  const [addresses, setAddresses] = useState<string[]>([]);
+  
   console.log('DeveloperToolsPanel render - isOpen:', isOpen);
   
   if (!isOpen) return null;
@@ -23,18 +26,32 @@ const DeveloperToolsPanel = ({ isOpen, onClose }: DeveloperToolsPanelProps) => {
     onClose();
   };
 
+  const handleAddAddress = () => {
+    if (devAddress.trim() && !addresses.includes(devAddress.trim())) {
+      setAddresses([...addresses, devAddress.trim()]);
+      console.log('Added dev address:', devAddress.trim());
+      setDevAddress('');
+    }
+  };
+
+  const handleInputKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleAddAddress();
+    }
+  };
+
   return (
     <div 
-      className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/50 z-50"
       onClick={handleBackdropClick}
     >
-      <div className="bg-gray-900 rounded-lg p-6 max-w-md w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-gray-900 h-full w-full flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-white text-lg font-semibold">Developer Tools</h2>
+        <div className="flex items-center justify-between p-4 border-b border-gray-700">
+          <h2 className="text-white text-xl font-medium">Devs</h2>
           <button
             onClick={handleCloseClick}
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-gray-400 hover:text-white transition-colors p-2"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -42,44 +59,59 @@ const DeveloperToolsPanel = ({ isOpen, onClose }: DeveloperToolsPanelProps) => {
           </button>
         </div>
 
-        {/* Developer Tools Content */}
-        <div className="space-y-6">
-          {/* Console Section */}
-          <div>
-            <h3 className="text-white text-sm font-medium mb-3">Console</h3>
-            <div className="bg-black rounded-lg p-3 font-mono text-xs">
-              <div className="text-green-400">$ Ready for development</div>
-              <div className="text-gray-400 mt-1">Type commands here...</div>
-            </div>
+        {/* Content */}
+        <div className="flex-1 p-4">
+          {/* Input Section */}
+          <div className="flex gap-3 mb-6">
+            <input
+              type="text"
+              placeholder="Dev Address"
+              value={devAddress}
+              onChange={(e) => setDevAddress(e.target.value)}
+              onKeyPress={handleInputKeyPress}
+              className="flex-1 bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-gray-500"
+            />
+            <button
+              onClick={handleAddAddress}
+              className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+            >
+              Add
+            </button>
           </div>
 
-          {/* Debug Options */}
-          <div>
-            <h3 className="text-white text-sm font-medium mb-3">Debug Options</h3>
-            <div className="space-y-2">
-              <button className="w-full bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded px-3 py-2 text-sm text-white text-left transition-colors">
-                Show Component Tree
-              </button>
-              <button className="w-full bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded px-3 py-2 text-sm text-white text-left transition-colors">
-                Network Requests
-              </button>
-              <button className="w-full bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded px-3 py-2 text-sm text-white text-left transition-colors">
-                Performance Monitor
-              </button>
-              <button className="w-full bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded px-3 py-2 text-sm text-white text-left transition-colors">
-                Local Storage
-              </button>
-            </div>
+          {/* Main Content Area */}
+          <div className="flex-1 flex flex-col items-center justify-center text-center min-h-[400px]">
+            {addresses.length === 0 ? (
+              <>
+                {/* Folder Icon */}
+                <div className="mb-6">
+                  <svg className="w-20 h-20 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/>
+                  </svg>
+                </div>
+                
+                {/* Message */}
+                <p className="text-gray-400 text-lg mb-8">
+                  Please add Dev Addresses to block
+                </p>
+              </>
+            ) : (
+              <div className="w-full">
+                <h3 className="text-white text-lg mb-4">Added Addresses:</h3>
+                <div className="space-y-2">
+                  {addresses.map((address, index) => (
+                    <div key={index} className="bg-gray-800 border border-gray-600 rounded-lg p-3 text-white text-left">
+                      {address}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* System Info */}
-          <div>
-            <h3 className="text-white text-sm font-medium mb-3">System Info</h3>
-            <div className="bg-gray-800 rounded-lg p-3 text-xs text-gray-300 space-y-1">
-              <div>React Version: 18.3.1</div>
-              <div>Environment: Development</div>
-              <div>Build: Latest</div>
-            </div>
+          {/* Footer Counter */}
+          <div className="mt-6 text-gray-400 text-sm">
+            {addresses.length}/500 Addresses
           </div>
         </div>
       </div>
