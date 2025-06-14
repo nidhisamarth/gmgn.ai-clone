@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
 
@@ -86,15 +85,16 @@ const MobileHeader = () => {
           className="flex items-center gap-2 bg-gray-800 border border-gray-600 px-3 py-2 rounded-lg text-sm min-h-[36px] touch-manipulation hover:bg-gray-700 transition-colors"
           onClick={(e) => handleButtonClick(e, 'folder')}
         >
-          {/* Updated folder icon to match reference - cleaner folder design */}
+          {/* Updated folder icon to match reference - simplified folder with lines */}
           <div className="w-4 h-4 relative flex-shrink-0">
+            {/* Folder base */}
+            <div className="absolute top-1 left-0 w-4 h-2.5 border border-white rounded-sm bg-transparent"></div>
             {/* Folder tab */}
-            <div className="absolute top-0 left-0 w-2 h-1 bg-white rounded-t-sm"></div>
-            {/* Folder body */}
-            <div className="absolute top-0.5 left-0 w-4 h-3 border-2 border-white rounded-sm bg-transparent"></div>
-            {/* Document lines inside folder */}
-            <div className="absolute top-1.5 left-0.5 w-3 h-0.5 bg-white rounded-sm"></div>
-            <div className="absolute top-2.5 left-0.5 w-2.5 h-0.5 bg-white rounded-sm"></div>
+            <div className="absolute top-0 left-0 w-1.5 h-1.5 border-t border-l border-r border-white rounded-t-sm bg-transparent"></div>
+            {/* Three horizontal lines inside folder */}
+            <div className="absolute top-2 left-0.5 w-3 h-0.5 bg-white"></div>
+            <div className="absolute top-2.5 left-0.5 w-3 h-0.5 bg-white"></div>
+            <div className="absolute top-3 left-0.5 w-3 h-0.5 bg-white"></div>
           </div>
           <span className="text-white text-sm font-medium">0</span>
         </button>
