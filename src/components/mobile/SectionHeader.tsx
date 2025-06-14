@@ -57,7 +57,7 @@ const SectionHeader = () => {
       {/* New Creations Header */}
       <div className="flex items-center gap-2">
         <img 
-          src="/lovable-uploads/67520719-6b9f-429e-ac3d-5787cb090bfb.png" 
+          src="/lovable-uploads/31ef9bb6-a6cf-451e-acb0-51abe9686e18.png" 
           alt="Leaf icon" 
           className="w-5 h-5"
         />

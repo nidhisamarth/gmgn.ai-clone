@@ -7,8 +7,12 @@ const MobileHeader = () => {
     <div className="bg-black px-4 py-3 flex items-center justify-between">
       {/* Left section with frog icon and SOL dropdown */}
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 bg-green-500 rounded flex items-center justify-center">
-          <span className="text-white text-lg">🐸</span>
+        <div className="w-8 h-8 rounded flex items-center justify-center">
+          <img 
+            src="/lovable-uploads/3446d744-cd08-43f6-beba-f962a9fb2d58.png" 
+            alt="Frog icon" 
+            className="w-8 h-8"
+          />
         </div>
         <div className="flex items-center gap-1">
           <span className="text-white font-medium">SOL</span>
