@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import CustomizationPanel from './CustomizationPanel';
+import DeveloperToolsPanel from './DeveloperToolsPanel';
 
 const TrenchesSection = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState('Trenches');
   const [isCustomizationOpen, setIsCustomizationOpen] = useState(false);
+  const [isDeveloperToolsOpen, setIsDeveloperToolsOpen] = useState(false);
 
-  console.log('TrenchesSection render - isCustomizationOpen:', isCustomizationOpen);
+  console.log('TrenchesSection render - isCustomizationOpen:', isCustomizationOpen, 'isDeveloperToolsOpen:', isDeveloperToolsOpen);
 
   const dropdownOptions = [
     {
@@ -107,17 +109,30 @@ const TrenchesSection = () => {
     console.log(`Button clicked: ${buttonType}`);
   };
 
-  // Updated to handle home icon click for customization panel
+  // Hamburger menu opens customization panel
+  const handleHamburgerClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Hamburger menu clicked - opening customization panel');
+    setIsCustomizationOpen(true);
+  };
+
+  // Home icon opens developer tools
   const handleHomeClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('Home icon clicked - opening customization panel');
-    setIsCustomizationOpen(true);
+    console.log('Home icon clicked - opening developer tools');
+    setIsDeveloperToolsOpen(true);
   };
 
   const handleCustomizeClose = () => {
     console.log('Closing customization panel');
     setIsCustomizationOpen(false);
+  };
+
+  const handleDeveloperToolsClose = () => {
+    console.log('Closing developer tools panel');
+    setIsDeveloperToolsOpen(false);
   };
 
   const selectedOptionData = dropdownOptions.find(option => option.name === selectedOption) || dropdownOptions[0];
@@ -159,10 +174,10 @@ const TrenchesSection = () => {
         {/* Filter Bar */}
         <div className="flex items-center justify-between mt-3">
           <div className="flex items-center gap-3">
-            {/* Hamburger menu icon */}
+            {/* Hamburger menu icon - Opens customization panel */}
             <button 
               className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
-              onClick={(e) => handleFilterClick(e, 'menu')}
+              onClick={handleHamburgerClick}
             >
               <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line x1="2" y1="4" x2="14" y2="4" stroke="white" strokeWidth="1" strokeLinecap="round" />
@@ -171,7 +186,7 @@ const TrenchesSection = () => {
               </svg>
             </button>
             
-            {/* Home icon - Updated to open customization panel */}
+            {/* Home icon - Opens developer tools */}
             <button 
               className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
               onClick={handleHomeClick}
@@ -267,6 +282,12 @@ const TrenchesSection = () => {
       <CustomizationPanel 
         isOpen={isCustomizationOpen} 
         onClose={handleCustomizeClose} 
+      />
+
+      {/* Developer Tools Panel */}
+      <DeveloperToolsPanel 
+        isOpen={isDeveloperToolsOpen} 
+        onClose={handleDeveloperToolsClose} 
       />
     </>
   );
