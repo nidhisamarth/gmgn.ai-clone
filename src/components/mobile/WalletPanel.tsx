@@ -70,16 +70,6 @@ const WalletPanel = ({ isOpen, onClose }: WalletPanelProps) => {
               </div>
               Buy
             </button>
-            
-            {/* 0 badge */}
-            <div className="bg-purple-600 px-2 py-1 rounded text-xs text-white flex items-center gap-1">
-              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 12 12">
-                <rect x="2" y="2" width="8" height="1" rx="0.5" />
-                <rect x="2" y="5" width="8" height="1" rx="0.5" />
-                <rect x="2" y="8" width="8" height="1" rx="0.5" />
-              </svg>
-              0
-            </div>
           </div>
 
           {/* Right section with P1, P2 */}
@@ -122,16 +112,6 @@ const WalletPanel = ({ isOpen, onClose }: WalletPanelProps) => {
                   </button>
                 </div>
               </div>
-            </div>
-            
-            {/* Right section with 0 badge */}
-            <div className="bg-purple-600 px-2 py-1 rounded text-xs text-white flex items-center gap-1">
-              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 12 12">
-                <rect x="2" y="2" width="8" height="1" rx="0.5" />
-                <rect x="2" y="5" width="8" height="1" rx="0.5" />
-                <rect x="2" y="8" width="8" height="1" rx="0.5" />
-              </svg>
-              0
             </div>
           </div>
         </div>
