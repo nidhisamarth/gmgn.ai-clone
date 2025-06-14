@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronDown, Filter, Edit, Settings } from 'lucide-react';
 import { useBuyAmount } from '../../contexts/BuyAmountContext';
@@ -7,6 +6,7 @@ import DeveloperToolsPanel from './DeveloperToolsPanel';
 import FilterPanel from './FilterPanel';
 import TrendSettingsPanel from './TrendSettingsPanel';
 import WalletPanel from './WalletPanel';
+import TPSLCustomizationPanel from './TPSLCustomizationPanel';
 
 const TrenchesSection = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -16,10 +16,11 @@ const TrenchesSection = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isTrendSettingsOpen, setIsTrendSettingsOpen] = useState(false);
   const [isWalletOpen, setIsWalletOpen] = useState(false);
+  const [isTPSLOpen, setIsTPSLOpen] = useState(false);
   
   const { buyAmount, setBuyAmount, calculatePrice } = useBuyAmount();
 
-  console.log('TrenchesSection render - isCustomizationOpen:', isCustomizationOpen, 'isDeveloperToolsOpen:', isDeveloperToolsOpen, 'isFilterOpen:', isFilterOpen, 'isTrendSettingsOpen:', isTrendSettingsOpen, 'isWalletOpen:', isWalletOpen);
+  console.log('TrenchesSection render - isCustomizationOpen:', isCustomizationOpen, 'isDeveloperToolsOpen:', isDeveloperToolsOpen, 'isFilterOpen:', isFilterOpen, 'isTrendSettingsOpen:', isTrendSettingsOpen, 'isWalletOpen:', isWalletOpen, 'isTPSLOpen:', isTPSLOpen);
 
   const dropdownOptions = [
     {
@@ -110,6 +111,18 @@ const TrenchesSection = () => {
   const handleWalletClose = () => {
     console.log('Closing wallet panel');
     setIsWalletOpen(false);
+  };
+
+  const handleTPSLClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('TP/SL clicked - opening TP/SL customization panel');
+    setIsTPSLOpen(true);
+  };
+
+  const handleTPSLClose = () => {
+    console.log('Closing TP/SL panel');
+    setIsTPSLOpen(false);
   };
 
   const handleFilterClick = (e: React.MouseEvent) => {
@@ -207,8 +220,13 @@ const TrenchesSection = () => {
               <ChevronDown className="w-3 h-3 text-gray-400" />
             </button>
             
-            {/* TP/SL text */}
-            <span className="text-white text-sm">TP/SL</span>
+            {/* TP/SL text - now clickable */}
+            <button 
+              className="text-white text-sm hover:bg-gray-800 px-2 py-1 rounded transition-colors"
+              onClick={handleTPSLClick}
+            >
+              TP/SL
+            </button>
             
             {/* Edit/Pen icon */}
             <button className="text-gray-400 hover:text-white transition-colors">
@@ -293,6 +311,12 @@ const TrenchesSection = () => {
       <WalletPanel 
         isOpen={isWalletOpen} 
         onClose={handleWalletClose} 
+      />
+
+      {/* TP/SL Customization Panel */}
+      <TPSLCustomizationPanel 
+        isOpen={isTPSLOpen} 
+        onClose={handleTPSLClose} 
       />
     </>
   );
