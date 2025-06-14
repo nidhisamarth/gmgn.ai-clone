@@ -10,6 +10,7 @@ import Trending from "./pages/Trending";
 import CopyTrade from "./pages/CopyTrade";
 import Monitor from "./pages/Monitor";
 import Follow from "./pages/Follow";
+import Holding from "./pages/Holding";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/copytrade" element={<CopyTrade />} />
           <Route path="/monitor" element={<Monitor />} />
           <Route path="/follow" element={<Follow />} />
+          <Route path="/holding" element={<Holding />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

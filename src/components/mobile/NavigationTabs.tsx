@@ -12,7 +12,8 @@ const NavigationTabs = () => {
     { name: 'Trending', path: '/trending' },
     { name: 'CopyTrade', path: '/copytrade' },
     { name: 'Monitor', path: '/monitor' },
-    { name: 'Follow', path: '/follow' }
+    { name: 'Follow', path: '/follow' },
+    { name: 'Holding', path: '/holding' }
   ];
 
   const getActiveTab = () => {
