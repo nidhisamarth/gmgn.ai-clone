@@ -30,7 +30,7 @@ const MobileHeader = () => {
           />
         </div>
         <button 
-          className="flex items-center gap-2 bg-gray-800 px-3 py-2 rounded text-sm min-h-[36px] touch-manipulation hover:bg-gray-700 transition-colors"
+          className="flex items-center gap-2 bg-black border border-gray-700 px-3 py-2 rounded text-sm min-h-[36px] touch-manipulation hover:bg-gray-900 transition-colors"
           onClick={(e) => handleButtonClick(e, 'sol-dropdown')}
         >
           <span className="text-white font-medium text-sm">SOL</span>
@@ -42,7 +42,7 @@ const MobileHeader = () => {
       <div className="flex items-center gap-4">
         <button 
           onClick={(e) => handleIconClick(e, 'search')}
-          className="p-2 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-gray-800 rounded transition-colors"
+          className="p-2 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-gray-900 rounded transition-colors"
         >
           {/* Updated search icon to be more refined */}
           <div className="w-5 h-5 relative">
@@ -52,7 +52,7 @@ const MobileHeader = () => {
         </button>
         <button 
           onClick={(e) => handleIconClick(e, 'target')}
-          className="p-2 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-gray-800 rounded transition-colors"
+          className="p-2 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-gray-900 rounded transition-colors"
         >
           {/* Updated target icon to match circular crosshair design */}
           <div className="w-5 h-5 relative">
@@ -69,7 +69,7 @@ const MobileHeader = () => {
       {/* Right section with folder icon and dropdown */}
       <div className="flex items-center gap-2">
         <button 
-          className="flex items-center gap-2 bg-gray-800 px-3 py-2 rounded text-sm border border-gray-700 min-h-[36px] touch-manipulation hover:bg-gray-700 transition-colors"
+          className="flex items-center gap-2 bg-black border border-gray-700 px-3 py-2 rounded text-sm min-h-[36px] touch-manipulation hover:bg-gray-900 transition-colors"
           onClick={(e) => handleButtonClick(e, 'folder')}
         >
           {/* Updated folder icon to better match stacked design */}
@@ -82,7 +82,7 @@ const MobileHeader = () => {
         </button>
         <button 
           onClick={(e) => handleIconClick(e, 'dropdown')}
-          className="p-2 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-gray-800 rounded transition-colors"
+          className="p-2 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-gray-900 rounded transition-colors"
         >
           <ChevronDown className="w-4 h-4 text-gray-400" />
         </button>

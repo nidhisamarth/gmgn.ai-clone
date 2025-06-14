@@ -47,7 +47,7 @@ const TrenchesSection = () => {
         <div className="flex items-center gap-3">
           {/* Updated hamburger menu icon */}
           <button 
-            className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center"
+            className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
             onClick={(e) => handleFilterClick(e, 'menu')}
           >
             <div className="flex flex-col gap-1">
@@ -59,7 +59,7 @@ const TrenchesSection = () => {
           
           {/* Updated home icon */}
           <button 
-            className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center"
+            className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
             onClick={(e) => handleFilterClick(e, 'home')}
           >
             <div className="relative w-4 h-4">
@@ -70,7 +70,7 @@ const TrenchesSection = () => {
           
           {/* Updated search icon */}
           <button 
-            className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center"
+            className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
             onClick={(e) => handleFilterClick(e, 'search')}
           >
             <div className="w-4 h-4 relative">
@@ -82,10 +82,10 @@ const TrenchesSection = () => {
         
         <div className="flex items-center gap-2">
           {/* Middle grouped section with dark background */}
-          <div className="flex items-center bg-gray-800 rounded-lg px-2 py-1 gap-2">
+          <div className="flex items-center bg-black border border-gray-700 rounded-lg px-2 py-1 gap-2">
             <div className="flex items-center">
               <button 
-                className="bg-gray-700 px-2 py-1 rounded text-xs text-white flex items-center gap-1"
+                className="bg-black border border-gray-600 px-2 py-1 rounded text-xs text-white flex items-center gap-1 hover:bg-gray-900 transition-colors"
                 onClick={(e) => handleButtonClick(e, 'folder')}
               >
                 {/* Updated folder icon */}
@@ -101,7 +101,7 @@ const TrenchesSection = () => {
             </div>
             
             <button 
-              className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center"
+              className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors"
               onClick={(e) => handleButtonClick(e, 'lightning')}
             >
               {/* Updated lightning bolt icon */}
@@ -112,7 +112,7 @@ const TrenchesSection = () => {
             </button>
             
             <button 
-              className="bg-gray-700 px-2 py-1 rounded text-xs text-white flex items-center gap-1"
+              className="bg-black border border-gray-600 px-2 py-1 rounded text-xs text-white flex items-center gap-1 hover:bg-gray-900 transition-colors"
               onClick={(e) => handleButtonClick(e, 'filter')}
             >
               {/* Updated filter icon */}
@@ -127,7 +127,7 @@ const TrenchesSection = () => {
           
           <div className="flex items-center">
             <button 
-              className="bg-gray-800 px-3 py-1 rounded text-xs text-white border border-gray-600"
+              className="bg-black border border-gray-600 px-3 py-1 rounded text-xs text-white hover:bg-gray-900 transition-colors"
               onClick={(e) => handleButtonClick(e, 'p1')}
             >
               P1
@@ -139,7 +139,7 @@ const TrenchesSection = () => {
           
           {/* Updated settings gear icon */}
           <button 
-            className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center"
+            className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
             onClick={(e) => handleButtonClick(e, 'settings')}
           >
             <div className="w-4 h-4 relative">
