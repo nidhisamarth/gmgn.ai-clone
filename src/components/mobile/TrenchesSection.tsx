@@ -108,10 +108,11 @@ const TrenchesSection = () => {
     console.log(`Button clicked: ${buttonType}`);
   };
 
-  const handleCustomizeClick = (e: React.MouseEvent) => {
+  // Updated to handle hamburger menu click for customization panel
+  const handleHamburgerClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('Settings gear clicked - opening customization panel');
+    console.log('Hamburger menu clicked - opening customization panel');
     setIsCustomizationOpen(true);
   };
 
@@ -159,10 +160,10 @@ const TrenchesSection = () => {
         {/* Filter Bar */}
         <div className="flex items-center justify-between mt-3">
           <div className="flex items-center gap-3">
-            {/* Hamburger menu icon as SVG */}
+            {/* Hamburger menu icon - Updated to open customization panel */}
             <button 
               className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
-              onClick={(e) => handleFilterClick(e, 'menu')}
+              onClick={handleHamburgerClick}
             >
               <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line x1="2" y1="4" x2="14" y2="4" stroke="white" strokeWidth="1" strokeLinecap="round" />
@@ -249,10 +250,10 @@ const TrenchesSection = () => {
               </button>
             </div>
             
-            {/* Settings gear icon as SVG - Updated to open customization panel */}
+            {/* Settings gear icon - no longer opens customization panel */}
             <button 
               className="w-8 h-8 bg-black border border-gray-700 rounded flex items-center justify-center hover:bg-gray-900 transition-colors"
-              onClick={handleCustomizeClick}
+              onClick={(e) => handleFilterClick(e, 'settings')}
             >
               <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="8" cy="8" r="2" stroke="#d1d5db" strokeWidth="1" fill="none" />
