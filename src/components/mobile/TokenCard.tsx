@@ -53,7 +53,7 @@ const TokenCard: React.FC<TokenCardProps> = ({ token }) => {
               </div>
             </div>
             
-            {/* Stats Row */}
+            {/* Stats Row - Combined on same line */}
             <div className="flex items-center gap-3 text-sm mb-2">
               <span className="text-pink-400">👥 {token.stats.percentage1}%</span>
               <span className="text-green-400">👥 {token.stats.percentage2}%</span>
@@ -62,11 +62,7 @@ const TokenCard: React.FC<TokenCardProps> = ({ token }) => {
               {token.stats.runs > 0 && (
                 <span className="text-gray-400">🏃 {token.stats.runs}</span>
               )}
-            </div>
-            
-            {/* Volume & Market Cap */}
-            <div className="text-gray-400 text-sm">
-              V {token.volume} MC {token.marketCap}
+              <span className="text-gray-400">V {token.volume} MC {token.marketCap}</span>
             </div>
           </div>
         </div>

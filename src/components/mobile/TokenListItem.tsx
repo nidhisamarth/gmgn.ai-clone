@@ -114,7 +114,7 @@ const TokenListItem: React.FC<TokenListItemProps> = ({
           )}
         </div>
         
-        {/* Stats */}
+        {/* Stats - Combined on same line */}
         <div className="flex items-center gap-3 text-sm mb-2">
           <div className="flex items-center gap-1">
             <span className="text-pink-400">👥</span>
@@ -138,11 +138,9 @@ const TokenListItem: React.FC<TokenListItemProps> = ({
               <span className="text-gray-400">{stats.runs}</span>
             </div>
           )}
-        </div>
-        
-        {/* Volume and Market Cap */}
-        <div className="text-gray-400 text-sm">
-          V {volume} MC {marketCap}
+          <div className="text-gray-400">
+            V {volume} MC {marketCap}
+          </div>
         </div>
       </div>
       
