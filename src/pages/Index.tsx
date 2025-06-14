@@ -6,6 +6,7 @@ import NavigationTabs from '../components/mobile/NavigationTabs';
 import TrenchesSection from '../components/mobile/TrenchesSection';
 import NewCreationsSection from '../components/mobile/NewCreationsSection';
 import TokenList from '../components/mobile/TokenList';
+import ZagdidTokenCard from '../components/mobile/ZagdidTokenCard';
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
         <NavigationTabs />
         <TrenchesSection />
         <NewCreationsSection />
+        <ZagdidTokenCard />
         <TokenList />
       </div>
     </BuyAmountProvider>
