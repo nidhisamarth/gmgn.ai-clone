@@ -1,17 +1,17 @@
 
 import React from 'react';
-import MobileHeader from '../components/mobile/MobileHeader';
-import NavigationTabs from '../components/mobile/NavigationTabs';
-import SectionHeader from '../components/mobile/SectionHeader';
-import TokenCardList from '../components/mobile/TokenCardList';
+import GMGNHeader from '../components/mobile/GMGNHeader';
+import SearchAndFilters from '../components/mobile/SearchAndFilters';
+import GMGNTokenList from '../components/mobile/GMGNTokenList';
+import BottomNav from '../components/mobile/BottomNav';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-black text-white">
-      <MobileHeader />
-      <NavigationTabs />
-      <SectionHeader />
-      <TokenCardList />
+      <GMGNHeader />
+      <SearchAndFilters />
+      <GMGNTokenList />
+      <BottomNav />
     </div>
   );
 };
