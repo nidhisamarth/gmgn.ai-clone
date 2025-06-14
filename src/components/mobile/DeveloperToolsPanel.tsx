@@ -42,10 +42,10 @@ const DeveloperToolsPanel = ({ isOpen, onClose }: DeveloperToolsPanelProps) => {
 
   return (
     <div 
-      className="fixed inset-0 bg-black/50 z-50"
+      className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
       onClick={handleBackdropClick}
     >
-      <div className="bg-gray-900 h-full w-full flex flex-col">
+      <div className="bg-gray-900 rounded-lg w-full max-w-md max-h-[80vh] flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-700">
           <h2 className="text-white text-xl font-medium">Devs</h2>
@@ -60,7 +60,7 @@ const DeveloperToolsPanel = ({ isOpen, onClose }: DeveloperToolsPanelProps) => {
         </div>
 
         {/* Content */}
-        <div className="flex-1 p-4">
+        <div className="flex-1 p-4 overflow-y-auto">
           {/* Input Section */}
           <div className="flex gap-3 mb-6">
             <input
@@ -80,27 +80,27 @@ const DeveloperToolsPanel = ({ isOpen, onClose }: DeveloperToolsPanelProps) => {
           </div>
 
           {/* Main Content Area */}
-          <div className="flex-1 flex flex-col items-center justify-center text-center min-h-[400px]">
+          <div className="flex flex-col items-center justify-center text-center min-h-[200px]">
             {addresses.length === 0 ? (
               <>
                 {/* Folder Icon */}
-                <div className="mb-6">
-                  <svg className="w-20 h-20 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                <div className="mb-4">
+                  <svg className="w-16 h-16 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/>
                   </svg>
                 </div>
                 
                 {/* Message */}
-                <p className="text-gray-400 text-lg mb-8">
+                <p className="text-gray-400 text-sm mb-4">
                   Please add Dev Addresses to block
                 </p>
               </>
             ) : (
               <div className="w-full">
                 <h3 className="text-white text-lg mb-4">Added Addresses:</h3>
-                <div className="space-y-2">
+                <div className="space-y-2 max-h-40 overflow-y-auto">
                   {addresses.map((address, index) => (
-                    <div key={index} className="bg-gray-800 border border-gray-600 rounded-lg p-3 text-white text-left">
+                    <div key={index} className="bg-gray-800 border border-gray-600 rounded-lg p-3 text-white text-left text-sm">
                       {address}
                     </div>
                   ))}
@@ -110,7 +110,7 @@ const DeveloperToolsPanel = ({ isOpen, onClose }: DeveloperToolsPanelProps) => {
           </div>
 
           {/* Footer Counter */}
-          <div className="mt-6 text-gray-400 text-sm">
+          <div className="mt-4 text-gray-400 text-sm text-center">
             {addresses.length}/500 Addresses
           </div>
         </div>
