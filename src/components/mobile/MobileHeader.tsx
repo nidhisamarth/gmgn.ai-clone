@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Search, Target, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const MobileHeader = () => {
   // Prevent header icons from causing navigation
@@ -44,13 +44,25 @@ const MobileHeader = () => {
           onClick={(e) => handleIconClick(e, 'search')}
           className="p-2 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-gray-800 rounded transition-colors"
         >
-          <Search className="w-5 h-5 text-white" />
+          {/* Updated search icon to be more refined */}
+          <div className="w-5 h-5 relative">
+            <div className="absolute top-0 left-0 w-3.5 h-3.5 border-2 border-white rounded-full"></div>
+            <div className="absolute bottom-0 right-0 w-2 h-0.5 bg-white rounded-full transform rotate-45 origin-left"></div>
+          </div>
         </button>
         <button 
           onClick={(e) => handleIconClick(e, 'target')}
           className="p-2 touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-gray-800 rounded transition-colors"
         >
-          <Target className="w-5 h-5 text-white" />
+          {/* Updated target icon to match circular crosshair design */}
+          <div className="w-5 h-5 relative">
+            <div className="absolute inset-0 border-2 border-white rounded-full"></div>
+            <div className="absolute inset-1.5 border border-white rounded-full"></div>
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-0.5 h-1.5 bg-white"></div>
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0.5 h-1.5 bg-white"></div>
+            <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1.5 h-0.5 bg-white"></div>
+            <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1.5 h-0.5 bg-white"></div>
+          </div>
         </button>
       </div>
 
@@ -60,10 +72,11 @@ const MobileHeader = () => {
           className="flex items-center gap-2 bg-gray-800 px-3 py-2 rounded text-sm border border-gray-700 min-h-[36px] touch-manipulation hover:bg-gray-700 transition-colors"
           onClick={(e) => handleButtonClick(e, 'folder')}
         >
-          {/* Custom folder icon to match the stacked rectangles style */}
-          <div className="w-4 h-4 flex flex-col justify-center flex-shrink-0">
-            <div className="w-4 h-1 bg-white rounded-sm mb-0.5"></div>
-            <div className="w-4 h-1 bg-white rounded-sm"></div>
+          {/* Updated folder icon to better match stacked design */}
+          <div className="w-4 h-4 relative flex-shrink-0">
+            <div className="absolute top-0 left-0 w-4 h-2.5 bg-gray-600 rounded-sm"></div>
+            <div className="absolute top-1 left-0 w-4 h-2.5 bg-white rounded-sm border border-gray-300"></div>
+            <div className="absolute top-0.5 left-1 w-1.5 h-0.5 bg-gray-600 rounded-sm"></div>
           </div>
           <span className="text-white text-sm font-medium">0</span>
         </button>

@@ -45,31 +45,37 @@ const TrenchesSection = () => {
       {/* Filter Bar */}
       <div className="flex items-center justify-between mt-3">
         <div className="flex items-center gap-3">
+          {/* Updated hamburger menu icon */}
           <button 
             className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center"
             onClick={(e) => handleFilterClick(e, 'menu')}
           >
-            <div className="flex flex-col gap-0.5">
-              <div className="w-3 h-0.5 bg-white rounded"></div>
-              <div className="w-3 h-0.5 bg-white rounded"></div>
-              <div className="w-3 h-0.5 bg-white rounded"></div>
+            <div className="flex flex-col gap-1">
+              <div className="w-4 h-0.5 bg-white rounded"></div>
+              <div className="w-4 h-0.5 bg-white rounded"></div>
+              <div className="w-4 h-0.5 bg-white rounded"></div>
             </div>
           </button>
+          
+          {/* Updated home icon */}
           <button 
             className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center"
             onClick={(e) => handleFilterClick(e, 'home')}
           >
-            <div className="relative">
-              <div className="w-3 h-2.5 bg-white" style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}></div>
-              <div className="w-3 h-1.5 bg-white mt-0.5"></div>
+            <div className="relative w-4 h-4">
+              <div className="absolute bottom-0 left-0 w-4 h-2 bg-white"></div>
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-b-2 border-transparent border-b-white" style={{ borderLeftColor: 'transparent', borderRightColor: 'transparent', borderBottomColor: 'white', borderBottomWidth: '8px', borderLeftWidth: '8px', borderRightWidth: '8px' }}></div>
             </div>
           </button>
+          
+          {/* Updated search icon */}
           <button 
             className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center"
             onClick={(e) => handleFilterClick(e, 'search')}
           >
-            <div className="w-3 h-3 border border-white rounded-full relative">
-              <div className="absolute -bottom-0.5 -right-0.5 w-1 h-0.5 bg-white rotate-45"></div>
+            <div className="w-4 h-4 relative">
+              <div className="absolute top-0 left-0 w-3 h-3 border border-white rounded-full"></div>
+              <div className="absolute bottom-0 right-0 w-1.5 h-0.5 bg-white rounded-full transform rotate-45 origin-left"></div>
             </div>
           </button>
         </div>
@@ -82,7 +88,11 @@ const TrenchesSection = () => {
                 className="bg-gray-700 px-2 py-1 rounded text-xs text-white flex items-center gap-1"
                 onClick={(e) => handleButtonClick(e, 'folder')}
               >
-                <span>📁</span>
+                {/* Updated folder icon */}
+                <div className="w-3 h-3 relative">
+                  <div className="absolute top-0 left-0 w-3 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="absolute top-0.5 left-0 w-3 h-2 bg-white rounded-sm"></div>
+                </div>
                 <span>1</span>
               </button>
               <button onClick={handleIconClick} className="ml-1">
@@ -94,16 +104,21 @@ const TrenchesSection = () => {
               className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center"
               onClick={(e) => handleButtonClick(e, 'lightning')}
             >
-              <span className="text-white text-sm font-bold">⚡</span>
+              {/* Updated lightning bolt icon */}
+              <div className="w-3 h-4 relative">
+                <div className="absolute top-0 left-1 w-0 h-0 border-l-2 border-r-1 border-b-2 border-transparent border-b-white" style={{ borderLeftWidth: '4px', borderRightWidth: '2px', borderBottomWidth: '8px' }}></div>
+                <div className="absolute bottom-0 right-1 w-0 h-0 border-l-1 border-r-2 border-t-2 border-transparent border-t-white" style={{ borderLeftWidth: '2px', borderRightWidth: '4px', borderTopWidth: '8px' }}></div>
+              </div>
             </button>
             
             <button 
               className="bg-gray-700 px-2 py-1 rounded text-xs text-white flex items-center gap-1"
               onClick={(e) => handleButtonClick(e, 'filter')}
             >
+              {/* Updated filter icon */}
               <div className="flex flex-col gap-0.5">
-                <div className="w-2 h-0.5 bg-cyan-400 rounded"></div>
-                <div className="w-2 h-0.5 bg-cyan-400 rounded"></div>
+                <div className="w-3 h-0.5 bg-cyan-400 rounded"></div>
+                <div className="w-2.5 h-0.5 bg-cyan-400 rounded"></div>
                 <div className="w-2 h-0.5 bg-cyan-400 rounded"></div>
               </div>
               <span>0</span>
@@ -122,16 +137,21 @@ const TrenchesSection = () => {
             </button>
           </div>
           
+          {/* Updated settings gear icon */}
           <button 
             className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center"
             onClick={(e) => handleButtonClick(e, 'settings')}
           >
-            <div className="w-4 h-4 border border-gray-400 rounded-full relative">
-              <div className="absolute inset-1 border border-gray-400 rounded-full"></div>
-              <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-0.5 h-1 bg-gray-400"></div>
-              <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0.5 h-1 bg-gray-400"></div>
-              <div className="absolute -left-1 top-1/2 transform -translate-y-1/2 w-1 h-0.5 bg-gray-400"></div>
-              <div className="absolute -right-1 top-1/2 transform -translate-y-1/2 w-1 h-0.5 bg-gray-400"></div>
+            <div className="w-4 h-4 relative">
+              <div className="absolute inset-1 w-2 h-2 border border-gray-300 rounded-full"></div>
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-0.5 h-1 bg-gray-300 rounded"></div>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0.5 h-1 bg-gray-300 rounded"></div>
+              <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-0.5 bg-gray-300 rounded"></div>
+              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-1 h-0.5 bg-gray-300 rounded"></div>
+              <div className="absolute top-0.5 right-0.5 w-0.5 h-0.5 bg-gray-300 rounded transform rotate-45"></div>
+              <div className="absolute top-0.5 left-0.5 w-0.5 h-0.5 bg-gray-300 rounded transform rotate-45"></div>
+              <div className="absolute bottom-0.5 right-0.5 w-0.5 h-0.5 bg-gray-300 rounded transform rotate-45"></div>
+              <div className="absolute bottom-0.5 left-0.5 w-0.5 h-0.5 bg-gray-300 rounded transform rotate-45"></div>
             </div>
           </button>
         </div>
